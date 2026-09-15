@@ -34,7 +34,7 @@
         PSC
       </div>
       <div>
-        <h1 class="font-bold text-sm sm:text-base text-emerald-400 leading-tight">സാമ്പത്തിക ശാസ്ത്രം - സെറ്റ് 1</h1>
+        <h1 id="headerExamTitle" class="font-bold text-sm sm:text-base text-emerald-400 leading-tight">സാമ്പത്തിക ശാസ്ത്രം - സെറ്റ് 1</h1>
         <p class="text-[11px] text-slate-400">Special Notes by Subhash Kumar | 25 ചോദ്യങ്ങൾ (25 മിനിറ്റ്)</p>
       </div>
     </div>
@@ -42,7 +42,7 @@
       <button id="fullscreenToggleBtn" class="px-3 py-1.5 bg-slate-700 hover:bg-slate-600 text-slate-200 text-xs font-semibold rounded-lg border border-slate-600 transition flex items-center space-x-1">
         <span>⛶ Fullscreen</span>
       </button>
-      <div id="userInfoHeader" class="hidden text-right">
+      <div id="userInfoHeader" class="text-right">
         <span id="displayUser" class="text-xs sm:text-sm font-semibold text-slate-200"></span>
         <p class="text-[10px] text-emerald-400 font-mono">+1.00 / -0.33 Mark</p>
       </div>
@@ -51,54 +51,13 @@
 
   <main class="flex-1 flex flex-col items-center justify-center p-3 sm:p-6 w-full max-w-4xl mx-auto">
     
-    <!-- Step 1: Registration Screen -->
-    <div id="loginCard" class="w-full max-w-md bg-slate-800 border border-slate-700 rounded-2xl p-6 sm:p-8 shadow-2xl">
-      <div class="text-center mb-6">
-        <span class="inline-block p-3 rounded-2xl bg-emerald-500/10 text-emerald-400 mb-2">
-          <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
-        </span>
-        <h2 class="text-xl sm:text-2xl font-bold text-white">മോഡൽ എക്സാം</h2>
-        <p class="text-sm text-slate-400 mt-1">പേരും മൊബൈൽ നമ്പറും നൽകി പരീക്ഷ ആരംഭിക്കുക.</p>
-      </div>
-
-      <form id="loginForm" class="space-y-4">
-        <div>
-          <label class="block text-xs font-semibold text-slate-300 uppercase tracking-wider mb-1">പൂർണ്ണമായ പേര്</label>
-          <input type="text" id="candName" required class="w-full bg-slate-900 border border-slate-700 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-emerald-500 transition text-sm" placeholder="ഉദാ: സുഭാഷ് കുമാർ">
-        </div>
-
-        <div>
-          <label class="block text-xs font-semibold text-slate-300 uppercase tracking-wider mb-1">മൊബൈൽ നമ്പർ</label>
-          <div class="flex items-center space-x-2">
-            <span class="bg-slate-900 border border-slate-700 px-3 py-3 rounded-xl text-slate-300 font-mono text-xs select-none">🇮🇳 +91</span>
-            <input type="tel" id="candPhone" pattern="[0-9]{10}" required class="flex-1 bg-slate-900 border border-slate-700 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-emerald-500 transition font-mono tracking-wider text-sm" placeholder="10 അക്ക നമ്പർ">
-          </div>
-        </div>
-
-        <div class="bg-slate-900/70 p-3.5 rounded-xl border border-slate-700 text-xs space-y-1 text-slate-300">
-          <p class="font-bold text-emerald-400">പരീക്ഷാ നിർദ്ദേശങ്ങൾ:</p>
-          <p class="text-amber-300 font-semibold">• സമയം: 25 മിനിറ്റ് | ആകെ ചോദ്യങ്ങൾ: 25</p>
-          <p>• ശരിയുത്തരം: +1 മാർക്ക് | തെറ്റായ ഉത്തരം: -0.33 മാർക്ക്</p>
-          <p class="text-emerald-400 font-semibold">• കുറഞ്ഞത് 8 മാർക്ക് നേടിയാൽ ഔദ്യോഗിക PDF ലഭ്യമാകും</p>
-        </div>
-
-        <button type="submit" class="w-full py-3.5 bg-gradient-to-r from-emerald-500 to-teal-600 hover:from-emerald-600 text-slate-950 font-bold rounded-xl transition transform active:scale-95 shadow-lg text-sm">
-          പരീക്ഷ ആരംഭിക്കുക
-        </button>
-      </form>
-
-      <div class="mt-4 text-center">
-        <button id="viewRankBtn" type="button" class="text-xs text-slate-400 hover:text-emerald-400 underline">നിലവിലെ ലൈവ് റാങ്ക് ലിസ്റ്റ് കാണുക</button>
-      </div>
-    </div>
-
-    <!-- Step 1.5: Animated Motivation & Welcome Screen -->
-    <div id="motivationScreen" class="w-full max-w-lg bg-slate-800 border-2 border-emerald-500/60 rounded-3xl p-8 sm:p-10 shadow-2xl text-center hidden space-y-6 animate-pop">
+    <!-- Step 1: Animated Motivation & Welcome Screen (Starts Immediately) -->
+    <div id="motivationScreen" class="w-full max-w-lg bg-slate-800 border-2 border-emerald-500/60 rounded-3xl p-8 sm:p-10 shadow-2xl text-center space-y-6 animate-pop">
       <div class="w-20 h-20 bg-gradient-to-tr from-emerald-500 to-teal-600 rounded-full flex items-center justify-center mx-auto text-4xl shadow-xl animate-bounce">
         📈
       </div>
       <div>
-        <h2 id="motivateName" class="text-2xl sm:text-3xl font-black text-white"></h2>
+        <h2 id="motivateName" class="text-2xl sm:text-3xl font-black text-white">ഹലോ! ✨</h2>
         <p class="text-emerald-400 font-extrabold text-xs sm:text-sm mt-1 uppercase tracking-widest">സാമ്പത്തിക ശാസ്ത്ര പരീക്ഷയിലേക്ക് സ്വാഗതം!</p>
       </div>
 
@@ -171,15 +130,26 @@
 
     <!-- Step 3: Result Screen & Interactive Reviews -->
     <div id="resultScreen" class="w-full hidden space-y-6">
-      <div class="bg-slate-800 border border-slate-700 rounded-2xl p-6 sm:p-8 shadow-2xl text-center">
-        <h2 class="text-2xl sm:text-3xl font-black text-emerald-400 mb-1">പരീക്ഷാ ഫലം (Exam Result)</h2>
-        <p class="text-sm text-slate-400 mb-4" id="resultCandidateInfo"></p>
+      <div class="bg-slate-800 border border-slate-700 rounded-2xl p-6 sm:p-8 shadow-2xl text-center space-y-5">
+        
+        <!-- Return Home Button at Result Screen Top -->
+        <div class="flex justify-end">
+          <button onclick="returnToHomeWithData()" class="px-4 py-2 bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-black rounded-xl text-xs transition shadow flex items-center space-x-1.5">
+            <span>🏠</span>
+            <span>ഹോം പേജിലേക്ക് മടങ്ങുക (Save Result)</span>
+          </button>
+        </div>
+
+        <div>
+          <h2 class="text-2xl sm:text-3xl font-black text-emerald-400 mb-1">പരീക്ഷാ ഫലം (Exam Result)</h2>
+          <p class="text-sm text-slate-400" id="resultCandidateInfo"></p>
+        </div>
 
         <!-- Dynamic Motivation Badge -->
-        <div id="scoreMotivationBadge" class="max-w-xl mx-auto mb-6 p-4 rounded-2xl border text-sm leading-relaxed transition shadow-inner"></div>
+        <div id="scoreMotivationBadge" class="max-w-xl mx-auto p-4 rounded-2xl border text-sm leading-relaxed transition shadow-inner"></div>
 
         <!-- Clickable Score Cards -->
-        <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 max-w-2xl mx-auto mb-6">
+        <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 max-w-2xl mx-auto">
           <div class="bg-slate-900/80 p-3.5 rounded-xl border border-slate-750">
             <span class="text-[11px] text-slate-400 block font-semibold uppercase">നെറ്റ് സ്കോർ</span>
             <span id="finalScore" class="text-2xl sm:text-3xl font-black text-emerald-400 font-mono">0.00</span>
@@ -205,14 +175,14 @@
           </div>
         </div>
 
-        <div id="sheetStatus" class="text-xs text-emerald-400 mb-4 animate-pulse">സ്കോർ ഗൂഗിൾ ഷീറ്റിലേക്ക് രേഖപ്പെടുത്തുന്നു...</div>
+        <div id="sheetStatus" class="text-xs text-emerald-400 animate-pulse">സ്കോർ ഗൂഗിൾ ഷീറ്റിലേക്ക് രേഖപ്പെടുത്തുന്നു...</div>
 
         <!-- 8 Mark Lock Box -->
-        <div id="pdfLockNotice" class="hidden max-w-md mx-auto mb-5 p-3.5 bg-rose-950/40 border border-rose-800/80 rounded-xl text-xs text-rose-300">
+        <div id="pdfLockNotice" class="hidden max-w-md mx-auto p-3.5 bg-rose-950/40 border border-rose-800/80 rounded-xl text-xs text-rose-300">
           ⚠️ <strong>ശ്രദ്ധിക്കുക:</strong> കുറഞ്ഞത് 8 മാർക്ക് നേടിയാൽ മാത്രമേ ഔദ്യോഗിക നോട്ടുകൾ PDF ഡൗൺലോഡ് ചെയ്യാൻ സാധിക്കൂ. നിങ്ങളുടെ നിലവിലെ സ്കോർ 8-ൽ താഴെയാണ്.
         </div>
 
-        <div class="flex flex-wrap items-center justify-center gap-3">
+        <div class="flex flex-wrap items-center justify-center gap-3 pt-2">
           <button id="downloadOriginalNoteBtn" class="hidden px-5 py-2.5 bg-gradient-to-r from-emerald-500 to-teal-600 hover:from-emerald-600 text-slate-950 font-black rounded-xl text-sm transition shadow-lg flex items-center space-x-2">
             <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M9 19l3 3m0 0l3-3m-3 3V10"></path></svg>
             <span>ഔദ്യോഗിക നോട്ടുകൾ PDF ഡൗൺലോഡ് ചെയ്യുക 📥</span>
@@ -225,6 +195,11 @@
 
           <button id="showLeaderboardBtn" class="px-5 py-2.5 bg-emerald-500 hover:bg-emerald-600 text-slate-950 font-bold rounded-xl text-sm transition shadow-lg">
             ലൈവ് റാങ്ക് ലിസ്റ്റ് കാണുക
+          </button>
+
+          <button onclick="returnToHomeWithData()" class="px-5 py-2.5 bg-slate-700 hover:bg-slate-600 text-white font-bold rounded-xl text-sm transition flex items-center space-x-1.5">
+            <span>🏠</span>
+            <span>ഹോം പോർട്ടൽ</span>
           </button>
         </div>
       </div>
@@ -241,23 +216,10 @@
       <!-- Permanent Solutions Area at bottom -->
       <div id="pdfExportWrapper" class="bg-slate-800 border border-slate-700 rounded-2xl p-6 sm:p-8 shadow-2xl">
         <div class="border-b border-slate-700 pb-4 mb-6">
-          <h3 class="text-xl font-bold text-emerald-400">സാമ്പത്തിക ശാസ്ത്രം (സെറ്റ് 1) - ഉത്തര സൂചിക</h3>
+          <h3 class="text-xl font-bold text-emerald-400" id="solutionsTitleDisplay">സാമ്പത്തിക ശാസ്ത്രം (സെറ്റ് 1) - ഉത്തര സൂചിക</h3>
           <p class="text-xs text-slate-400 mt-1" id="pdfReportCandidateSubheader">പരീക്ഷാർത്ഥി വിവരങ്ങൾ</p>
         </div>
         <div id="solutionsContainer" class="space-y-6"></div>
-      </div>
-    </div>
-
-    <!-- Feedback Modal -->
-    <div id="feedbackModal" class="fixed inset-0 bg-slate-950/80 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
-      <div class="bg-slate-800 border border-slate-700 rounded-2xl max-w-sm w-full p-6 shadow-2xl text-center space-y-4">
-        <div class="w-12 h-12 rounded-full bg-emerald-500/20 text-emerald-400 flex items-center justify-center mx-auto text-2xl">🌟</div>
-        <h3 class="text-lg font-bold text-white">നിങ്ങൾക്ക് ഈ ക്വിസ് ഇഷ്ടമായോ?</h3>
-        <p class="text-xs text-slate-400">പ്രതികരണം നൽകിയ ശേഷം ഔദ്യോഗിക നോട്ട്സ് PDF ഡൗൺലോഡ് ചെയ്യാം.</p>
-        <div class="flex items-center justify-center space-x-4 pt-2">
-          <button id="likeBtn" class="px-5 py-2.5 bg-emerald-600 hover:bg-emerald-500 text-white font-bold rounded-xl text-sm transition">👍 Like</button>
-          <button id="dislikeBtn" class="px-5 py-2.5 bg-rose-600 hover:bg-rose-500 text-white font-bold rounded-xl text-sm transition">👎 Dislike</button>
-        </div>
       </div>
     </div>
 
@@ -298,12 +260,11 @@
   </footer>
 
   <script>
-    // =========================================================================
-    // ⚠️ 1. കോൺഫിഗറേഷൻ വിവരങ്ങൾ:
-    // =========================================================================
-    const GOOGLE_SHEET_WEBAPP_URL = "https://script.google.com/macros/s/AKfycbztE9bExjlH5a9Y_O8pU9CzVZy5zl-wzycDISurGzxqwuWB71Nxquzpg00Ocf2QR9Zb/exec";
+    // 🌟 ഹോം പേജ് ഷീറ്റിൽ നിന്നുള്ള ലിങ്കുകൾ സ്വീകരിക്കാൻ ഡൈനാമിക് വേരിയബിളുകൾ:
+    let GOOGLE_SHEET_WEBAPP_URL = "https://script.google.com/macros/s/AKfycbztE9bExjlH5a9Y_O8pU9CzVZy5zl-wzycDISurGzxqwuWB71Nxquzpg00Ocf2QR9Zb/exec";
+    let ORIGINAL_PDF_URL = "https://drive.google.com/file/d/1aecXW0ASLm8F-z8pSSjW-u7ksDm4sIHq/view?usp=sharing";
     const QUIZ_SHEET_NAME = "Economics_Set1";
-    const ORIGINAL_PDF_URL = "https://drive.google.com/file/d/1aecXW0ASLm8F-z8pSSjW-u7ksDm4sIHq/view?usp=sharing";
+    let examTitle = "സാമ്പത്തിക ശാസ്ത്രം - സെറ്റ് 1";
 
     // ECONOMICS 1.pdf-ൽ നിന്നുള്ള 25 ചോദ്യങ്ങളും ഉത്തരങ്ങളും വിശദീകരണങ്ങളും
     const questionsData = [
@@ -459,7 +420,7 @@
       }
     ];
 
-    let currentUser = null;
+    let currentUser = { name: "പരീക്ഷാർത്ഥി", phone: "0000000000" };
     let currentIndex = 0;
     let userAnswers = new Array(questionsData.length).fill(null);
     let currentFontSizeLevel = 1;
@@ -474,10 +435,47 @@
     let timeLeft = 25 * 60;
     let timerInterval = null;
 
-    const loginCard = document.getElementById('loginCard');
     const motivationScreen = document.getElementById('motivationScreen');
     const quizScreen = document.getElementById('quizScreen');
     const resultScreen = document.getElementById('resultScreen');
+
+    // 🌟 ഹോം പേജ് അയച്ചു തരുന്ന പേര്, ഫോൺ, Sheet URL, PDF URL എന്നിവ സ്വയം ഏറ്റെടുക്കുന്നു:
+    window.addEventListener('DOMContentLoaded', () => {
+      const urlParams = new URLSearchParams(window.location.search);
+      const passedName = urlParams.get('name');
+      const passedPhone = urlParams.get('phone');
+      const passedTitle = urlParams.get('title');
+      const passedSheet = urlParams.get('sheetUrl');
+      const passedPdf = urlParams.get('pdfUrl');
+
+      if (passedName) currentUser.name = decodeURIComponent(passedName);
+      if (passedPhone) currentUser.phone = decodeURIComponent(passedPhone);
+      if (passedTitle) {
+        examTitle = decodeURIComponent(passedTitle);
+        document.getElementById('headerExamTitle').innerText = examTitle;
+        document.getElementById('solutionsTitleDisplay').innerText = `${examTitle} - ഉത്തര സൂചിക`;
+      }
+      if (passedSheet) GOOGLE_SHEET_WEBAPP_URL = decodeURIComponent(passedSheet);
+      if (passedPdf) ORIGINAL_PDF_URL = decodeURIComponent(passedPdf);
+
+      document.getElementById('displayUser').innerText = `${currentUser.name} (+91 ${currentUser.phone})`;
+      document.getElementById('motivateName').innerText = `ഹലോ, ${currentUser.name}! ✨`;
+
+      // ലോഗിൻ കാർഡ് പൂർണ്ണമായും ഇല്ലാത്തതിനാൽ ഉടൻ പരീക്ഷ ആരംഭിക്കുന്നു
+      triggerMotivationAndStart();
+    });
+
+    // 🌟 പരീക്ഷ കഴിഞ്ഞാൽ റിസൾട്ട് ഡാറ്റയോടെ തിരികെ ഹോം പേജിലേക്ക് പോകുന്നു:
+    function returnToHomeWithData() {
+      const homePortalUrl = "https://subhash-kumar00.github.io/PSC-EXAMS/";
+      const score = document.getElementById('finalScore').innerText;
+      const correct = document.getElementById('correctCount').innerText;
+      const wrong = document.getElementById('wrongCount').innerText;
+      const skipped = document.getElementById('skipCount').innerText;
+
+      const redirectUrl = `${homePortalUrl}?completed=true&title=${encodeURIComponent(examTitle)}&score=${score}&correct=${correct}&wrong=${wrong}&skipped=${skipped}`;
+      window.location.href = redirectUrl;
+    }
 
     function playBeepSound() {
       try {
@@ -526,10 +524,6 @@
     }
 
     function triggerMotivationAndStart() {
-      loginCard.classList.add('hidden');
-      document.getElementById('motivateName').innerText = `ഹലോ, ${currentUser.name}! ✨`;
-      motivationScreen.classList.remove('hidden');
-
       playBeepSound();
       triggerVibration();
 
@@ -728,28 +722,28 @@
 
       const badge = document.getElementById('scoreMotivationBadge');
       if (scoreNum >= 20) {
-        badge.className = "max-w-xl mx-auto mb-6 p-4 rounded-2xl border border-emerald-500/60 bg-emerald-950/40 text-emerald-300";
+        badge.className = "max-w-xl mx-auto mb-4 p-4 rounded-2xl border border-emerald-500/60 bg-emerald-950/40 text-emerald-300";
         badge.innerHTML = `🌟 <strong>അത്യുജ്ജ്വല പ്രകടനം!</strong> സാമ്പത്തിക ശാസ്ത്രത്തിൽ നിങ്ങൾ മികച്ച അറിവ് നേടിയിരിക്കുന്നു. ഇതേ ആത്മവിശ്വാസത്തോടെ അടുത്ത പരീക്ഷകളെയും നേരിടുക!`;
       } else if (scoreNum >= 14) {
-        badge.className = "max-w-xl mx-auto mb-6 p-4 rounded-2xl border border-emerald-500/60 bg-emerald-950/40 text-emerald-300";
+        badge.className = "max-w-xl mx-auto mb-4 p-4 rounded-2xl border border-emerald-500/60 bg-emerald-950/40 text-emerald-300";
         badge.innerHTML = `👍 <strong>വളരെ നല്ല പ്രകടനം!</strong> ചെറിയ ചില തെറ്റുകൾ തിരുത്തിയാൽ നിങ്ങൾക്ക് പൂർണ്ണ സ്കോറിലേക്ക് എത്താം. വിശദീകരണങ്ങൾ ശ്രദ്ധിച്ചു വായിക്കുക!`;
       } else if (scoreNum >= 8) {
-        badge.className = "max-w-xl mx-auto mb-6 p-4 rounded-2xl border border-amber-500/60 bg-amber-950/40 text-amber-300";
+        badge.className = "max-w-xl mx-auto mb-4 p-4 rounded-2xl border border-amber-500/60 bg-amber-950/40 text-amber-300";
         badge.innerHTML = `📖 <strong>നല്ല ശ്രമം!</strong> ഇനിയും കൂടുതൽ ആവർത്തിച്ചു പഠിക്കേണ്ടതുണ്ട്. തെറ്റിയ ചോദ്യങ്ങളും വിശദീകരണങ്ങളും വീണ്ടും പരിശീലിച്ച് സ്കോർ മെച്ചപ്പെടുത്തുക.`;
       } else {
-        badge.className = "max-w-xl mx-auto mb-6 p-4 rounded-2xl border border-rose-500/60 bg-rose-950/40 text-rose-300";
+        badge.className = "max-w-xl mx-auto mb-4 p-4 rounded-2xl border border-rose-500/60 bg-rose-950/40 text-rose-300";
         badge.innerHTML = `💪 <strong>നിരാശപ്പെടരുത്!</strong> ഇതൊരു തുടക്കം മാത്രമാണ്. നോട്ട്സുകൾ വീണ്ടും വായിച്ചുപഠിച്ച് വീണ്ടും പരീക്ഷ എഴുതുക, വിജയം നിങ്ങളെ തേടിയെത്തും!`;
       }
 
       const downloadBtn = document.getElementById('downloadOriginalNoteBtn');
       const lockNotice = document.getElementById('pdfLockNotice');
 
-      if (scoreNum >= 8.0) {
+      if (scoreNum >= 8.0 && ORIGINAL_PDF_URL) {
         downloadBtn.classList.remove('hidden');
         lockNotice.classList.add('hidden');
       } else {
         downloadBtn.classList.add('hidden');
-        lockNotice.classList.remove('hidden');
+        if (ORIGINAL_PDF_URL) lockNotice.classList.remove('hidden');
       }
 
       renderSolutions();
@@ -859,17 +853,8 @@
     };
 
     document.getElementById('downloadOriginalNoteBtn').onclick = () => {
-      document.getElementById('feedbackModal').classList.remove('hidden');
+      if (ORIGINAL_PDF_URL) window.open(ORIGINAL_PDF_URL, '_blank');
     };
-
-    document.getElementById('likeBtn').onclick = () => recordFeedbackAndOpenDownload('Like');
-    document.getElementById('dislikeBtn').onclick = () => recordFeedbackAndOpenDownload('Dislike');
-
-    function recordFeedbackAndOpenDownload(feedbackVal) {
-      document.getElementById('feedbackModal').classList.add('hidden');
-      sendFeedbackToGoogleSheet(currentUser.phone, feedbackVal);
-      window.open(ORIGINAL_PDF_URL, '_blank');
-    }
 
     function sendResultToGoogleSheet(payload) {
       const statusDiv = document.getElementById('sheetStatus');
@@ -889,11 +874,11 @@
       })
       .then(() => {
         statusDiv.innerText = `✓ മാർക്ക് '${QUIZ_SHEET_NAME}' എന്ന ഷീറ്റ് ടാബിലേക്ക് രേഖപ്പെടുത്തി!`;
-        statusDiv.className = "text-xs text-emerald-400 mb-4";
+        statusDiv.className = "text-xs text-emerald-400";
       })
       .catch(() => {
         statusDiv.innerText = "ഡാറ്റ സേവ് ചെയ്യുന്നതിൽ ചെറിയ തടസ്സം നേരിട്ടു.";
-        statusDiv.className = "text-xs text-rose-400 mb-4";
+        statusDiv.className = "text-xs text-rose-400";
       });
     }
 
@@ -908,21 +893,6 @@
           sheetName: QUIZ_SHEET_NAME,
           questionNumber: qNum,
           reason: reason
-        })
-      });
-    }
-
-    function sendFeedbackToGoogleSheet(phone, feedback) {
-      if (!GOOGLE_SHEET_WEBAPP_URL || GOOGLE_SHEET_WEBAPP_URL.includes("YOUR_APPS_SCRIPT_WEBAPP_URL_HERE")) return;
-      fetch(GOOGLE_SHEET_WEBAPP_URL, {
-        method: 'POST',
-        mode: 'no-cors',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          action: "submit_feedback",
-          sheetName: QUIZ_SHEET_NAME,
-          phone: phone,
-          feedback: feedback
         })
       });
     }
@@ -1060,24 +1030,7 @@
         });
     }
 
-    document.getElementById('loginForm').onsubmit = (e) => {
-      e.preventDefault();
-      const name = document.getElementById('candName').value.trim();
-      const phone = document.getElementById('candPhone').value.trim();
-
-      if (!name || phone.length !== 10) {
-        alert('ദയവായി ശരിയായ പേരും 10 അക്ക മൊബൈൽ നമ്പറും നൽകുക.');
-        return;
-      }
-
-      currentUser = { name, phone };
-      document.getElementById('displayUser').innerText = `${name} (+91 ${phone})`;
-      document.getElementById('userInfoHeader').classList.remove('hidden');
-
-      triggerMotivationAndStart();
-    };
-
-    document.getElementById('viewRankBtn').onclick = fetchLiveLeaderboard;
+    document.getElementById('viewRankBtn')?.addEventListener('click', fetchLiveLeaderboard);
     document.getElementById('showLeaderboardBtn').onclick = fetchLiveLeaderboard;
     document.getElementById('closeLeaderboardBtn').onclick = () => {
       document.getElementById('leaderboardModal').classList.add('hidden');
