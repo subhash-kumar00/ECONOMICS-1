@@ -51,7 +51,7 @@
 
   <main class="flex-1 flex flex-col items-center justify-center p-3 sm:p-6 w-full max-w-4xl mx-auto">
     
-    <!-- Step 1: Animated Motivation & Welcome Screen (Starts Immediately) -->
+    <!-- Step 1: Animated Motivation & Welcome Screen -->
     <div id="motivationScreen" class="w-full max-w-lg bg-slate-800 border-2 border-emerald-500/60 rounded-3xl p-8 sm:p-10 shadow-2xl text-center space-y-6 animate-pop">
       <div class="w-20 h-20 bg-gradient-to-tr from-emerald-500 to-teal-600 rounded-full flex items-center justify-center mx-auto text-4xl shadow-xl animate-bounce">
         📈
@@ -134,15 +134,18 @@
         
         <!-- Return Home Button at Result Screen Top -->
         <div class="flex justify-end">
-          <button onclick="returnToHomeWithData()" class="px-4 py-2 bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-black rounded-xl text-xs transition shadow flex items-center space-x-1.5">
+          <button onclick="returnToHomePortal()" class="px-4 py-2 bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-black rounded-xl text-xs transition shadow flex items-center space-x-1.5">
             <span>🏠</span>
-            <span>ഹോം പേജിലേക്ക് മടങ്ങുക (Save Result)</span>
+            <span>ഹോം പേജിലേക്ക് മടങ്ങുക</span>
           </button>
         </div>
 
         <div>
           <h2 class="text-2xl sm:text-3xl font-black text-emerald-400 mb-1">പരീക്ഷാ ഫലം (Exam Result)</h2>
-          <p class="text-sm text-slate-400" id="resultCandidateInfo"></p>
+          <p class="text-sm text-slate-400 mb-1" id="resultCandidateInfo"></p>
+          <span class="inline-block text-[11px] text-emerald-400 bg-emerald-950/60 px-3 py-1 rounded-full border border-emerald-800">
+            ✓ ഫലം പ്രൊഫൈൽ ഹിസ്റ്ററിയിൽ രേഖപ്പെടുത്തിയിട്ടുണ്ട്
+          </span>
         </div>
 
         <!-- Dynamic Motivation Badge -->
@@ -197,7 +200,7 @@
             ലൈവ് റാങ്ക് ലിസ്റ്റ് കാണുക
           </button>
 
-          <button onclick="returnToHomeWithData()" class="px-5 py-2.5 bg-slate-700 hover:bg-slate-600 text-white font-bold rounded-xl text-sm transition flex items-center space-x-1.5">
+          <button onclick="returnToHomePortal()" class="px-5 py-2.5 bg-slate-700 hover:bg-slate-600 text-white font-bold rounded-xl text-sm transition flex items-center space-x-1.5">
             <span>🏠</span>
             <span>ഹോം പോർട്ടൽ</span>
           </button>
@@ -261,10 +264,10 @@
 
   <script>
     // 🌟 ഹോം പേജ് ഷീറ്റിൽ നിന്നുള്ള ലിങ്കുകൾ സ്വീകരിക്കാൻ ഡൈനാമിക് വേരിയബിളുകൾ:
-    let GOOGLE_SHEET_WEBAPP_URL = "https://script.google.com/macros/s/AKfycbztE9bExjlH5a9Y_O8pU9CzVZy5zl-wzycDISurGzxqwuWB71Nxquzpg00Ocf2QR9Zb/exec";
-    let ORIGINAL_PDF_URL = "https://drive.google.com/file/d/1aecXW0ASLm8F-z8pSSjW-u7ksDm4sIHq/view?usp=sharing";
-    const QUIZ_SHEET_NAME = "Economics_Set1";
-    let examTitle = "സാമ്പത്തിക ശാസ്ത്രം - സെറ്റ് 1";
+    let GOOGLE_SHEET_WEBAPP_URL = "https://script.google.com/macros/s/AKfycbztE9bExjlH5a9Y_O8pU9CzVZy5zl-wzycDISurGzxqwuWB71Nxquzpg00Ocf2QR9Zb/exec";[cite: 3]
+    let ORIGINAL_PDF_URL = "https://drive.google.com/file/d/1aecXW0ASLm8F-z8pSSjW-u7ksDm4sIHq/view?usp=sharing";[cite: 3]
+    const QUIZ_SHEET_NAME = "Economics_Set1";[cite: 3]
+    let examTitle = "സാമ്പത്തിക ശാസ്ത്രം - സെറ്റ് 1";[cite: 3]
 
     // ECONOMICS 1.pdf-ൽ നിന്നുള്ള 25 ചോദ്യങ്ങളും ഉത്തരങ്ങളും വിശദീകരണങ്ങളും
     const questionsData = [
@@ -418,28 +421,28 @@
         ans: 0, 
         exp: "സാങ്കേതിക മാറ്റങ്ങളും പുതിയ ആശയങ്ങളും പഴയ വ്യവസായങ്ങളെ മാറ്റി പുതിയ അവസരങ്ങൾ സൃഷ്ടിക്കുന്നു എന്ന് ജോസഫ് ഷുംപീറ്റർ വ്യക്തമാക്കി." 
       }
-    ];
+    ];[cite: 3]
 
     let currentUser = { name: "പരീക്ഷാർത്ഥി", phone: "0000000000" };
-    let currentIndex = 0;
-    let userAnswers = new Array(questionsData.length).fill(null);
-    let currentFontSizeLevel = 1;
+    let currentIndex = 0;[cite: 3]
+    let userAnswers = new Array(questionsData.length).fill(null);[cite: 3]
+    let currentFontSizeLevel = 1;[cite: 3]
 
     const fontSizes = [
       { q: "text-sm sm:text-base" },
       { text: "text-base sm:text-lg" },
       { text: "text-lg sm:text-xl" },
       { text: "text-xl sm:text-2xl" }
-    ];
+    ];[cite: 3]
 
-    let timeLeft = 25 * 60;
-    let timerInterval = null;
+    let timeLeft = 25 * 60;[cite: 3]
+    let timerInterval = null;[cite: 3]
 
-    const motivationScreen = document.getElementById('motivationScreen');
-    const quizScreen = document.getElementById('quizScreen');
-    const resultScreen = document.getElementById('resultScreen');
+    const motivationScreen = document.getElementById('motivationScreen');[cite: 3]
+    const quizScreen = document.getElementById('quizScreen');[cite: 3]
+    const resultScreen = document.getElementById('resultScreen');[cite: 3]
 
-    // 🌟 ഹോം പേജ് അയച്ചു തരുന്ന പേര്, ഫോൺ, Sheet URL, PDF URL എന്നിവ സ്വയം ഏറ്റെടുക്കുന്നു:
+    // 🌟 ഹോം പേജ് അയച്ചു തരുന്ന വിവരങ്ങൾ സ്വയം ഏറ്റെടുക്കുന്നു:
     window.addEventListener('DOMContentLoaded', () => {
       const urlParams = new URLSearchParams(window.location.search);
       const passedName = urlParams.get('name');
@@ -461,20 +464,12 @@
       document.getElementById('displayUser').innerText = `${currentUser.name} (+91 ${currentUser.phone})`;
       document.getElementById('motivateName').innerText = `ഹലോ, ${currentUser.name}! ✨`;
 
-      // ലോഗിൻ കാർഡ് പൂർണ്ണമായും ഇല്ലാത്തതിനാൽ ഉടൻ പരീക്ഷ ആരംഭിക്കുന്നു
+      // ലോഗിൻ ഒഴിവാക്കി ഉടൻ പരീക്ഷ ആരംഭിക്കുന്നു
       triggerMotivationAndStart();
     });
 
-    // 🌟 പരീക്ഷ കഴിഞ്ഞാൽ റിസൾട്ട് ഡാറ്റയോടെ തിരികെ ഹോം പേജിലേക്ക് പോകുന്നു:
-    function returnToHomeWithData() {
-      const homePortalUrl = "https://subhash-kumar00.github.io/PSC-EXAMS/";
-      const score = document.getElementById('finalScore').innerText;
-      const correct = document.getElementById('correctCount').innerText;
-      const wrong = document.getElementById('wrongCount').innerText;
-      const skipped = document.getElementById('skipCount').innerText;
-
-      const redirectUrl = `${homePortalUrl}?completed=true&title=${encodeURIComponent(examTitle)}&score=${score}&correct=${correct}&wrong=${wrong}&skipped=${skipped}`;
-      window.location.href = redirectUrl;
+    function returnToHomePortal() {
+      window.location.href = "https://subhash-kumar00.github.io/PSC-EXAMS/";
     }
 
     function playBeepSound() {
@@ -490,13 +485,13 @@
         oscillator.start();
         oscillator.stop(audioCtx.currentTime + 0.15);
       } catch (e) {}
-    }
+    }[cite: 3]
 
     function triggerVibration() {
       if ("vibrate" in navigator) {
         try { navigator.vibrate([200, 100, 200]); } catch (e) {}
       }
-    }
+    }[cite: 3]
 
     document.getElementById('fullscreenToggleBtn').onclick = () => {
       if (!document.fullscreenElement) {
@@ -506,252 +501,275 @@
       } else {
         if (document.exitFullscreen) { document.exitFullscreen(); }
       }
-    };
+    };[cite: 3]
 
     document.getElementById('fontDecrease').onclick = () => {
       if (currentFontSizeLevel > 0) { currentFontSizeLevel--; updateFontSize(); }
-    };
+    };[cite: 3]
     document.getElementById('fontReset').onclick = () => {
       currentFontSizeLevel = 1; updateFontSize();
-    };
+    };[cite: 3]
     document.getElementById('fontIncrease').onclick = () => {
       if (currentFontSizeLevel < fontSizes.length - 1) { currentFontSizeLevel++; updateFontSize(); }
-    };
+    };[cite: 3]
 
     function updateFontSize() {
       const qElem = document.getElementById('qText');
       qElem.className = `${fontSizes[currentFontSizeLevel].q} font-semibold leading-relaxed text-slate-100 whitespace-pre-line transition-all duration-200`;
-    }
+    }[cite: 3]
 
     function triggerMotivationAndStart() {
-      playBeepSound();
-      triggerVibration();
+      playBeepSound();[cite: 3]
+      triggerVibration();[cite: 3]
 
-      let count = 3;
-      const countElem = document.getElementById('countdownNumber');
-      countElem.innerText = count;
+      let count = 3;[cite: 3]
+      const countElem = document.getElementById('countdownNumber');[cite: 3]
+      countElem.innerText = count;[cite: 3]
 
       const countdownTimer = setInterval(() => {
         count--;
         if (count > 0) {
-          countElem.innerText = count;
-          playBeepSound();
-          triggerVibration();
+          countElem.innerText = count;[cite: 3]
+          playBeepSound();[cite: 3]
+          triggerVibration();[cite: 3]
         } else {
-          clearInterval(countdownTimer);
-          playBeepSound();
-          triggerVibration();
-          motivationScreen.classList.add('hidden');
-          quizScreen.classList.remove('hidden');
-          buildPalette();
-          renderQuestion(0);
-          startTimer();
+          clearInterval(countdownTimer);[cite: 3]
+          playBeepSound();[cite: 3]
+          triggerVibration();[cite: 3]
+          motivationScreen.classList.add('hidden');[cite: 3]
+          quizScreen.classList.remove('hidden');[cite: 3]
+          buildPalette();[cite: 3]
+          renderQuestion(0);[cite: 3]
+          startTimer();[cite: 3]
         }
-      }, 1000);
+      }, 1000);[cite: 3]
     }
 
     function startTimer() {
-      const timerDisplay = document.getElementById('examTimer');
+      const timerDisplay = document.getElementById('examTimer');[cite: 3]
       timerInterval = setInterval(() => {
         if (timeLeft <= 0) {
-          clearInterval(timerInterval);
-          playBeepSound();
-          triggerVibration();
-          alert('അനുവദിച്ച 25 മിനിറ്റ് സമയം പൂർത്തിയായിരിക്കുന്നു! പരീക്ഷ തനിയെ സബ്മിറ്റ് ചെയ്യുന്നു.');
-          finishExam();
-          return;
+          clearInterval(timerInterval);[cite: 3]
+          playBeepSound();[cite: 3]
+          triggerVibration();[cite: 3]
+          alert('അനുവദിച്ച 25 മിനിറ്റ് സമയം പൂർത്തിയായിരിക്കുന്നു! പരീക്ഷ തനിയെ സബ്മിറ്റ് ചെയ്യുന്നു.');[cite: 3]
+          finishExam();[cite: 3]
+          return;[cite: 3]
         }
 
-        timeLeft--;
+        timeLeft--;[cite: 3]
 
         if (timeLeft <= 10 && timeLeft > 0) {
-          playBeepSound();
-          triggerVibration();
+          playBeepSound();[cite: 3]
+          triggerVibration();[cite: 3]
         }
 
-        const minutes = Math.floor(timeLeft / 60);
-        const seconds = timeLeft % 60;
+        const minutes = Math.floor(timeLeft / 60);[cite: 3]
+        const seconds = timeLeft % 60;[cite: 3]
 
-        const mStr = minutes < 10 ? '0' + minutes : minutes;
-        const sStr = seconds < 10 ? '0' + seconds : seconds;
-        timerDisplay.innerText = `${mStr}:${sStr}`;
+        const mStr = minutes < 10 ? '0' + minutes : minutes;[cite: 3]
+        const sStr = seconds < 10 ? '0' + seconds : seconds;[cite: 3]
+        timerDisplay.innerText = `${mStr}:${sStr}`;[cite: 3]
 
         if (timeLeft <= 180) {
-          timerDisplay.classList.remove('text-emerald-400');
-          timerDisplay.classList.add('text-rose-500', 'animate-pulse');
+          timerDisplay.classList.remove('text-emerald-400');[cite: 3]
+          timerDisplay.classList.add('text-rose-500', 'animate-pulse');[cite: 3]
         }
-      }, 1000);
+      }, 1000);[cite: 3]
     }
 
     function renderQuestion(index) {
-      const q = questionsData[index];
-      document.getElementById('questionBadge').innerText = `ചോദ്യം ${index + 1} / ${questionsData.length}`;
-      document.getElementById('qText').innerText = `${index + 1}. ${q.q}`;
+      const q = questionsData[index];[cite: 3]
+      document.getElementById('questionBadge').innerText = `ചോദ്യം ${index + 1} / ${questionsData.length}`;[cite: 3]
+      document.getElementById('qText').innerText = `${index + 1}. ${q.q}`;[cite: 3]
 
-      const optionsDiv = document.getElementById('optionsContainer');
-      optionsDiv.innerHTML = '';
-      const letters = ['A', 'B', 'C', 'D'];
+      const optionsDiv = document.getElementById('optionsContainer');[cite: 3]
+      optionsDiv.innerHTML = '';[cite: 3]
+      const letters = ['A', 'B', 'C', 'D'];[cite: 3]
 
       q.options.forEach((opt, idx) => {
-        const isSelected = userAnswers[index] === idx;
-        const btn = document.createElement('button');
-        btn.type = 'button';
+        const isSelected = userAnswers[index] === idx;[cite: 3]
+        const btn = document.createElement('button');[cite: 3]
+        btn.type = 'button';[cite: 3]
         btn.className = `w-full text-left p-3.5 rounded-xl border transition flex items-start space-x-3 ${
           isSelected 
             ? 'bg-emerald-500/20 border-emerald-500 text-emerald-200 ring-1 ring-emerald-500' 
             : 'bg-slate-900/60 border-slate-700 hover:bg-slate-700/50 text-slate-200'
-        }`;
+        }`;[cite: 3]
         btn.innerHTML = `
           <span class="w-6 h-6 rounded-lg flex items-center justify-center text-xs font-bold ${
             isSelected ? 'bg-emerald-500 text-slate-950 font-black' : 'bg-slate-800 text-slate-400'
           }">${letters[idx]}</span>
           <span class="text-xs sm:text-sm leading-relaxed mt-0.5">${opt}</span>
-        `;
+        `;[cite: 3]
         btn.onclick = () => {
-          userAnswers[index] = idx;
-          renderQuestion(index);
+          userAnswers[index] = idx;[cite: 3]
+          renderQuestion(index);[cite: 3]
         };
-        optionsDiv.appendChild(btn);
+        optionsDiv.appendChild(btn);[cite: 3]
       });
 
-      document.getElementById('prevBtn').disabled = (index === 0);
-      document.getElementById('nextBtn').innerText = (index === questionsData.length - 1) ? "സബ്മിറ്റ് ചെയ്യുക ✓" : "Next ›";
-      const answered = userAnswers.filter(a => a !== null).length;
-      document.getElementById('answeredCountTxt').innerText = `പൂർത്തിയാക്കിയത്: ${answered}/${questionsData.length}`;
-      updatePalette();
+      document.getElementById('prevBtn').disabled = (index === 0);[cite: 3]
+      document.getElementById('nextBtn').innerText = (index === questionsData.length - 1) ? "സബ്മിറ്റ് ചെയ്യുക ✓" : "Next ›";[cite: 3]
+      const answered = userAnswers.filter(a => a !== null).length;[cite: 3]
+      document.getElementById('answeredCountTxt').innerText = `പൂർത്തിയാക്കിയത്: ${answered}/${questionsData.length}`;[cite: 3]
+      updatePalette();[cite: 3]
     }
 
     document.getElementById('reportQuestionBtn').addEventListener('click', () => {
-      handleReportQuestion(currentIndex + 1);
+      handleReportQuestion(currentIndex + 1);[cite: 3]
     });
 
     function handleReportQuestion(qNum) {
-      const reason = prompt(`ചോദ്യം ${qNum} ൽ എന്തെങ്കിലും തെറ്റുകൾ ഉണ്ടെങ്കിൽ ദയവായി താഴെ രേഖപ്പെടുത്തുക:`);
+      const reason = prompt(`ചോദ്യം ${qNum} ൽ എന്തെങ്കിലും തെറ്റുകൾ ഉണ്ടെങ്കിൽ ദയവായി താഴെ രേഖപ്പെടുത്തുക:`);[cite: 3]
       if (reason && reason.trim()) {
-        sendReportQuestionToGoogleSheet(qNum, reason.trim());
-        alert(`നന്ദി! ചോദ്യം ${qNum} ലെ തെറ്റ് വിജയകരമായി റിപ്പോർട്ട് ചെയ്തിരിക്കുന്നു.`);
+        sendReportQuestionToGoogleSheet(qNum, reason.trim());[cite: 3]
+        alert(`നന്ദി! ചോദ്യം ${qNum} ലെ തെറ്റ് വിജയകരമായി റിപ്പോർട്ട് ചെയ്തിരിക്കുന്നു.`);[cite: 3]
       }
     }
 
     function buildPalette() {
-      const pal = document.getElementById('paletteContainer');
-      pal.innerHTML = '';
+      const pal = document.getElementById('paletteContainer');[cite: 3]
+      pal.innerHTML = '';[cite: 3]
       for (let i = 0; i < questionsData.length; i++) {
-        const b = document.createElement('button');
-        b.id = `pal-${i}`;
-        b.innerText = i + 1;
-        b.className = 'w-7 h-7 rounded text-[11px] font-bold flex items-center justify-center border transition';
-        b.onclick = () => { currentIndex = i; renderQuestion(currentIndex); };
-        pal.appendChild(b);
+        const b = document.createElement('button');[cite: 3]
+        b.id = `pal-${i}`;[cite: 3]
+        b.innerText = i + 1;[cite: 3]
+        b.className = 'w-7 h-7 rounded text-[11px] font-bold flex items-center justify-center border transition';[cite: 3]
+        b.onclick = () => { currentIndex = i; renderQuestion(currentIndex); };[cite: 3]
+        pal.appendChild(b);[cite: 3]
       }
-      updatePalette();
+      updatePalette();[cite: 3]
     }
 
     function updatePalette() {
       for (let i = 0; i < questionsData.length; i++) {
-        const b = document.getElementById(`pal-${i}`);
-        if (!b) continue;
+        const b = document.getElementById(`pal-${i}`);[cite: 3]
+        if (!b) continue;[cite: 3]
         if (i === currentIndex) {
-          b.className = 'w-7 h-7 rounded text-[11px] font-black border border-emerald-400 bg-emerald-400 text-slate-950';
+          b.className = 'w-7 h-7 rounded text-[11px] font-black border border-emerald-400 bg-emerald-400 text-slate-950';[cite: 3]
         } else if (userAnswers[i] !== null) {
-          b.className = 'w-7 h-7 rounded text-[11px] font-semibold border border-emerald-500/50 bg-emerald-950/60 text-emerald-400';
+          b.className = 'w-7 h-7 rounded text-[11px] font-semibold border border-emerald-500/50 bg-emerald-950/60 text-emerald-400';[cite: 3]
         } else {
-          b.className = 'w-7 h-7 rounded text-[11px] font-medium border border-slate-700 bg-slate-900 text-slate-400';
+          b.className = 'w-7 h-7 rounded text-[11px] font-medium border border-slate-700 bg-slate-900 text-slate-400';[cite: 3]
         }
       }
     }
 
     document.getElementById('nextBtn').onclick = () => {
       if (currentIndex < questionsData.length - 1) {
-        currentIndex++;
-        renderQuestion(currentIndex);
+        currentIndex++;[cite: 3]
+        renderQuestion(currentIndex);[cite: 3]
       } else {
-        finishExam();
+        finishExam();[cite: 3]
       }
     };
 
     document.getElementById('prevBtn').onclick = () => {
-      if (currentIndex > 0) { currentIndex--; renderQuestion(currentIndex); }
+      if (currentIndex > 0) { currentIndex--; renderQuestion(currentIndex); }[cite: 3]
     };
 
     document.getElementById('skipBtn').onclick = () => {
-      userAnswers[currentIndex] = null;
+      userAnswers[currentIndex] = null;[cite: 3]
       if (currentIndex < questionsData.length - 1) {
-        currentIndex++;
-        renderQuestion(currentIndex);
+        currentIndex++;[cite: 3]
+        renderQuestion(currentIndex);[cite: 3]
       } else {
-        finishExam();
+        finishExam();[cite: 3]
       }
     };
 
     document.getElementById('finishMidBtn').onclick = () => {
-      const answered = userAnswers.filter(a => a !== null).length;
+      const answered = userAnswers.filter(a => a !== null).length;[cite: 3]
       if (confirm(`നിങ്ങൾ 25-ൽ ${answered} ചോദ്യങ്ങൾക്ക് മാത്രമാണ് ഉത്തരം നൽകിയത്. ഇപ്പോൾ പരീക്ഷ അവസാനിപ്പിക്കണമെന്നുറപ്പാണോ?`)) {
-        finishExam();
+        finishExam();[cite: 3]
       }
     };
 
     function finishExam() {
-      if (timerInterval) clearInterval(timerInterval);
+      if (timerInterval) clearInterval(timerInterval);[cite: 3]
 
-      let correct = 0, wrong = 0, skipped = 0;
-      let wrongQuestionsList = [];
+      let correct = 0, wrong = 0, skipped = 0;[cite: 3]
+      let wrongQuestionsList = [];[cite: 3]
 
       for (let i = 0; i < questionsData.length; i++) {
         if (userAnswers[i] === null) {
-          skipped++;
+          skipped++;[cite: 3]
         } else if (userAnswers[i] === questionsData[i].ans) {
-          correct++;
+          correct++;[cite: 3]
         } else {
-          wrong++;
-          wrongQuestionsList.push(i + 1);
+          wrong++;[cite: 3]
+          wrongQuestionsList.push(i + 1);[cite: 3]
         }
       }
 
-      let netScore = (correct * 1.0) - (wrong * 0.33333333);
-      if (netScore < 0) netScore = 0;
-      const formattedScore = netScore.toFixed(2);
-      const scoreNum = parseFloat(formattedScore);
+      let netScore = (correct * 1.0) - (wrong * 0.33333333);[cite: 3]
+      if (netScore < 0) netScore = 0;[cite: 3]
+      const formattedScore = netScore.toFixed(2);[cite: 3]
+      const scoreNum = parseFloat(formattedScore);[cite: 3]
 
-      document.getElementById('finalScore').innerText = formattedScore;
-      document.getElementById('correctCount').innerText = correct;
-      document.getElementById('wrongCount').innerText = wrong;
-      document.getElementById('skipCount').innerText = skipped;
-      document.getElementById('resultCandidateInfo').innerText = `പരീക്ഷാർത്ഥി: ${currentUser.name} | മൊബൈൽ: ${currentUser.phone}`;
-      document.getElementById('pdfReportCandidateSubheader').innerText = `പരീക്ഷാർത്ഥി: ${currentUser.name} (${currentUser.phone}) | സ്കോർ: ${formattedScore} / 25 | ശരി: ${correct} | തെറ്റ്: ${wrong} | Skip: ${skipped}`;
+      document.getElementById('finalScore').innerText = formattedScore;[cite: 3]
+      document.getElementById('correctCount').innerText = correct;[cite: 3]
+      document.getElementById('wrongCount').innerText = wrong;[cite: 3]
+      document.getElementById('skipCount').innerText = skipped;[cite: 3]
+      document.getElementById('resultCandidateInfo').innerText = `പരീക്ഷാർത്ഥി: ${currentUser.name} | മൊബൈൽ: ${currentUser.phone}`;[cite: 3]
+      document.getElementById('pdfReportCandidateSubheader').innerText = `പരീക്ഷാർത്ഥി: ${currentUser.name} (${currentUser.phone}) | സ്കോർ: ${formattedScore} / 25 | ശരി: ${correct} | തെറ്റ്: ${wrong} | Skip: ${skipped}`;[cite: 3]
 
-      const badge = document.getElementById('scoreMotivationBadge');
+      // =========================================================================
+      // 🌟 ക്വിസ് അവസാനിച്ച ഉടൻ തന്നെ പ്രൊഫൈൽ ഹിസ്റ്ററിയിലേക്ക് ഡാറ്റ സേവ് ചെയ്യുന്നു:
+      // =========================================================================
+      try {
+        if (currentUser && currentUser.phone && currentUser.phone !== "0000000000") {
+          const historyKey = `sk_history_${currentUser.phone}`;
+          let history = JSON.parse(localStorage.getItem(historyKey) || '[]');
+
+          history.push({
+            title: examTitle || "സാമ്പത്തിക ശാസ്ത്രം - സെറ്റ് 1",
+            score: formattedScore,
+            correct: correct,
+            wrong: wrong,
+            skipped: skipped,
+            date: new Date().toLocaleDateString('ml-IN', { day: 'numeric', month: 'short', year: 'numeric' })
+          });
+
+          localStorage.setItem(historyKey, JSON.stringify(history));
+        }
+      } catch (err) {
+        console.error("Failed to save history locally:", err);
+      }
+
+      const badge = document.getElementById('scoreMotivationBadge');[cite: 3]
       if (scoreNum >= 20) {
         badge.className = "max-w-xl mx-auto mb-4 p-4 rounded-2xl border border-emerald-500/60 bg-emerald-950/40 text-emerald-300";
-        badge.innerHTML = `🌟 <strong>അത്യുജ്ജ്വല പ്രകടനം!</strong> സാമ്പത്തിക ശാസ്ത്രത്തിൽ നിങ്ങൾ മികച്ച അറിവ് നേടിയിരിക്കുന്നു. ഇതേ ആത്മവിശ്വാസത്തോടെ അടുത്ത പരീക്ഷകളെയും നേരിടുക!`;
+        badge.innerHTML = `🌟 <strong>അത്യുജ്ജ്വല പ്രകടനം!</strong> സാമ്പത്തിക ശാസ്ത്രത്തിൽ നിങ്ങൾ മികച്ച അറിവ് നേടിയിരിക്കുന്നു. ഇതേ ആത്മവിശ്വാസത്തോടെ അടുത്ത പരീക്ഷകളെയും നേരിടുക!`;[cite: 3]
       } else if (scoreNum >= 14) {
         badge.className = "max-w-xl mx-auto mb-4 p-4 rounded-2xl border border-emerald-500/60 bg-emerald-950/40 text-emerald-300";
-        badge.innerHTML = `👍 <strong>വളരെ നല്ല പ്രകടനം!</strong> ചെറിയ ചില തെറ്റുകൾ തിരുത്തിയാൽ നിങ്ങൾക്ക് പൂർണ്ണ സ്കോറിലേക്ക് എത്താം. വിശദീകരണങ്ങൾ ശ്രദ്ധിച്ചു വായിക്കുക!`;
+        badge.innerHTML = `👍 <strong>വളരെ നല്ല പ്രകടനം!</strong> ചെറിയ ചില തെറ്റുകൾ തിരുത്തിയാൽ നിങ്ങൾക്ക് പൂർണ്ണ സ്കോറിലേക്ക് എത്താം. വിശദീകരണങ്ങൾ ശ്രദ്ധിച്ചു വായിക്കുക!`;[cite: 3]
       } else if (scoreNum >= 8) {
         badge.className = "max-w-xl mx-auto mb-4 p-4 rounded-2xl border border-amber-500/60 bg-amber-950/40 text-amber-300";
-        badge.innerHTML = `📖 <strong>നല്ല ശ്രമം!</strong> ഇനിയും കൂടുതൽ ആവർത്തിച്ചു പഠിക്കേണ്ടതുണ്ട്. തെറ്റിയ ചോദ്യങ്ങളും വിശദീകരണങ്ങളും വീണ്ടും പരിശീലിച്ച് സ്കോർ മെച്ചപ്പെടുത്തുക.`;
+        badge.innerHTML = `📖 <strong>നല്ല ശ്രമം!</strong> ഇനിയും കൂടുതൽ ആവർത്തിച്ചു പഠിക്കേണ്ടതുണ്ട്. തെറ്റിയ ചോദ്യങ്ങളും വിശദീകരണങ്ങളും വീണ്ടും പരിശീലിച്ച് സ്കോർ മെച്ചപ്പെടുത്തുക.`;[cite: 3]
       } else {
         badge.className = "max-w-xl mx-auto mb-4 p-4 rounded-2xl border border-rose-500/60 bg-rose-950/40 text-rose-300";
-        badge.innerHTML = `💪 <strong>നിരാശപ്പെടരുത്!</strong> ഇതൊരു തുടക്കം മാത്രമാണ്. നോട്ട്സുകൾ വീണ്ടും വായിച്ചുപഠിച്ച് വീണ്ടും പരീക്ഷ എഴുതുക, വിജയം നിങ്ങളെ തേടിയെത്തും!`;
+        badge.innerHTML = `💪 <strong>നിരാശപ്പെടരുത്!</strong> ഇതൊരു തുടക്കം മാത്രമാണ്. നോട്ട്സുകൾ വീണ്ടും വായിച്ചുപഠിച്ച് വീണ്ടും പരീക്ഷ എഴുതുക, വിജയം നിങ്ങളെ തേടിയെത്തും!`;[cite: 3]
       }
 
-      const downloadBtn = document.getElementById('downloadOriginalNoteBtn');
-      const lockNotice = document.getElementById('pdfLockNotice');
+      const downloadBtn = document.getElementById('downloadOriginalNoteBtn');[cite: 3]
+      const lockNotice = document.getElementById('pdfLockNotice');[cite: 3]
 
       if (scoreNum >= 8.0 && ORIGINAL_PDF_URL) {
-        downloadBtn.classList.remove('hidden');
-        lockNotice.classList.add('hidden');
+        downloadBtn.classList.remove('hidden');[cite: 3]
+        lockNotice.classList.add('hidden');[cite: 3]
       } else {
-        downloadBtn.classList.add('hidden');
-        if (ORIGINAL_PDF_URL) lockNotice.classList.remove('hidden');
+        downloadBtn.classList.add('hidden');[cite: 3]
+        if (ORIGINAL_PDF_URL) lockNotice.classList.remove('hidden');[cite: 3]
       }
 
-      renderSolutions();
-      setupClickableReviewCards();
+      renderSolutions();[cite: 3]
+      setupClickableReviewCards();[cite: 3]
 
-      quizScreen.classList.add('hidden');
-      resultScreen.classList.remove('hidden');
-      window.scrollTo({ top: 0, behavior: 'smooth' });
+      quizScreen.classList.add('hidden');[cite: 3]
+      resultScreen.classList.remove('hidden');[cite: 3]
+      window.scrollTo({ top: 0, behavior: 'smooth' });[cite: 3]
 
       sendResultToGoogleSheet({
         name: currentUser.name,
@@ -761,66 +779,66 @@
         wrong: wrong,
         skipped: skipped,
         wrongQuestions: wrongQuestionsList
-      });
+      });[cite: 3]
     }
 
     function setupClickableReviewCards() {
-      document.getElementById('filterCorrectCard').onclick = () => renderFilteredQuestions('correct');
-      document.getElementById('filterWrongCard').onclick = () => renderFilteredQuestions('wrong');
-      document.getElementById('filterSkippedCard').onclick = () => renderFilteredQuestions('skipped');
+      document.getElementById('filterCorrectCard').onclick = () => renderFilteredQuestions('correct');[cite: 3]
+      document.getElementById('filterWrongCard').onclick = () => renderFilteredQuestions('wrong');[cite: 3]
+      document.getElementById('filterSkippedCard').onclick = () => renderFilteredQuestions('skipped');[cite: 3]
     }
 
     function renderFilteredQuestions(type) {
-      const area = document.getElementById('filterReviewArea');
-      const title = document.getElementById('filterReviewTitle');
-      const list = document.getElementById('filterReviewList');
-      const letters = ['A', 'B', 'C', 'D'];
+      const area = document.getElementById('filterReviewArea');[cite: 3]
+      const title = document.getElementById('filterReviewTitle');[cite: 3]
+      const list = document.getElementById('filterReviewList');[cite: 3]
+      const letters = ['A', 'B', 'C', 'D'];[cite: 3]
 
-      list.innerHTML = '';
-      area.classList.remove('hidden');
+      list.innerHTML = '';[cite: 3]
+      area.classList.remove('hidden');[cite: 3]
 
       if (type === 'correct') {
-        title.innerHTML = `✅ നിങ്ങൾ ശരിയാക്കിയ ചോദ്യങ്ങൾ (Correct Answers)`;
-        title.className = "text-lg font-bold text-emerald-400";
+        title.innerHTML = `✅ നിങ്ങൾ ശരിയാക്കിയ ചോദ്യങ്ങൾ (Correct Answers)`;[cite: 3]
+        title.className = "text-lg font-bold text-emerald-400";[cite: 3]
       } else if (type === 'wrong') {
-        title.innerHTML = `❌ നിങ്ങൾക്ക് തെറ്റിയ ചോദ്യങ്ങൾ (Wrong Answers)`;
-        title.className = "text-lg font-bold text-rose-400";
+        title.innerHTML = `❌ നിങ്ങൾക്ക് തെറ്റിയ ചോദ്യങ്ങൾ (Wrong Answers)`;[cite: 3]
+        title.className = "text-lg font-bold text-rose-400";[cite: 3]
       } else {
-        title.innerHTML = `⏭️ നിങ്ങൾ ഒഴിവാക്കിയ ചോദ്യങ്ങൾ (Skipped Questions)`;
-        title.className = "text-lg font-bold text-slate-300";
+        title.innerHTML = `⏭️ നിങ്ങൾ ഒഴിവാക്കിയ ചോദ്യങ്ങൾ (Skipped Questions)`;[cite: 3]
+        title.className = "text-lg font-bold text-slate-300";[cite: 3]
       }
 
-      let count = 0;
+      let count = 0;[cite: 3]
       questionsData.forEach((q, idx) => {
-        const uAns = userAnswers[idx];
-        const isCorrect = uAns === q.ans;
-        const isWrong = uAns !== null && !isCorrect;
-        const isSkipped = uAns === null;
+        const uAns = userAnswers[idx];[cite: 3]
+        const isCorrect = uAns === q.ans;[cite: 3]
+        const isWrong = uAns !== null && !isCorrect;[cite: 3]
+        const isSkipped = uAns === null;[cite: 3]
 
         if ((type === 'correct' && isCorrect) || (type === 'wrong' && isWrong) || (type === 'skipped' && isSkipped)) {
-          count++;
-          const card = document.createElement('div');
-          card.className = "p-4 rounded-xl border border-slate-700 bg-slate-900/90 space-y-2 text-xs sm:text-sm";
+          count++;[cite: 3]
+          const card = document.createElement('div');[cite: 3]
+          card.className = "p-4 rounded-xl border border-slate-700 bg-slate-900/90 space-y-2 text-xs sm:text-sm";[cite: 3]
           
-          let optsMarkup = '<div class="grid grid-cols-1 sm:grid-cols-2 gap-2 mt-2">';
+          let optsMarkup = '<div class="grid grid-cols-1 sm:grid-cols-2 gap-2 mt-2">';[cite: 3]
           q.options.forEach((opt, oIdx) => {
-            let optClass = 'p-2 rounded-lg border flex items-center space-x-2 text-xs ';
+            let optClass = 'p-2 rounded-lg border flex items-center space-x-2 text-xs ';[cite: 3]
             if (oIdx === q.ans) {
-              optClass += 'border-emerald-500 bg-emerald-950/40 text-emerald-300 font-semibold';
+              optClass += 'border-emerald-500 bg-emerald-950/40 text-emerald-300 font-semibold';[cite: 3]
             } else if (oIdx === uAns && !isCorrect) {
-              optClass += 'border-rose-500 bg-rose-950/40 text-rose-300 line-through';
+              optClass += 'border-rose-500 bg-rose-950/40 text-rose-300 line-through';[cite: 3]
             } else {
-              optClass += 'border-slate-800 text-slate-400';
+              optClass += 'border-slate-800 text-slate-400';[cite: 3]
             }
-            optsMarkup += `<div class="${optClass}"><span>${letters[oIdx]})</span><span>${opt}</span></div>`;
+            optsMarkup += `<div class="${optClass}"><span>${letters[oIdx]})</span><span>${opt}</span></div>`;[cite: 3]
           });
-          optsMarkup += '</div>';
+          optsMarkup += '</div>';[cite: 3]
 
           let statusBadge = isCorrect 
             ? '<span class="text-emerald-400 font-bold">+1.00 Mark</span>' 
             : isWrong 
             ? '<span class="text-rose-400 font-bold">-0.33 Mark</span>' 
-            : '<span class="text-slate-400 font-bold">Skipped (0 Mark)</span>';
+            : '<span class="text-slate-400 font-bold">Skipped (0 Mark)</span>';[cite: 3]
 
           card.innerHTML = `
             <div class="flex items-center justify-between">
@@ -836,20 +854,20 @@
               <span class="font-bold text-emerald-400">വിശദീകരണം:</span>
               <span class="text-slate-300 ml-1">${q.exp}</span>
             </div>
-          `;
-          list.appendChild(card);
+          `;[cite: 3]
+          list.appendChild(card);[cite: 3]
         }
       });
 
       if (count === 0) {
-        list.innerHTML = `<p class="py-4 text-center text-slate-400 text-xs">ഈ വിഭാഗത്തിൽ ചോദ്യങ്ങൾ ഒന്നുമില്ല.</p>`;
+        list.innerHTML = `<p class="py-4 text-center text-slate-400 text-xs">ഈ വിഭാഗത്തിൽ ചോദ്യങ്ങൾ ഒന്നുമില്ല.</p>`;[cite: 3]
       }
 
-      area.scrollIntoView({ behavior: 'smooth' });
+      area.scrollIntoView({ behavior: 'smooth' });[cite: 3]
     }
 
     document.getElementById('closeFilterReviewBtn').onclick = () => {
-      document.getElementById('filterReviewArea').classList.add('hidden');
+      document.getElementById('filterReviewArea').classList.add('hidden');[cite: 3]
     };
 
     document.getElementById('downloadOriginalNoteBtn').onclick = () => {
@@ -857,14 +875,14 @@
     };
 
     function sendResultToGoogleSheet(payload) {
-      const statusDiv = document.getElementById('sheetStatus');
+      const statusDiv = document.getElementById('sheetStatus');[cite: 3]
       if (!GOOGLE_SHEET_WEBAPP_URL || GOOGLE_SHEET_WEBAPP_URL.includes("YOUR_APPS_SCRIPT_WEBAPP_URL_HERE")) {
-        statusDiv.innerText = "Google Sheet ലിങ്ക് നൽകിയിട്ടില്ല (മാർക്ക് മുകളിൽ ലഭ്യമാണ്).";
-        statusDiv.classList.remove('animate-pulse');
+        statusDiv.innerText = "Google Sheet ലിങ്ക് നൽകിയിട്ടില്ല (മാർക്ക് മുകളിൽ ലഭ്യമാണ്).";[cite: 3]
+        statusDiv.classList.remove('animate-pulse');[cite: 3]
         return;
       }
 
-      payload.sheetName = QUIZ_SHEET_NAME;
+      payload.sheetName = QUIZ_SHEET_NAME;[cite: 3]
 
       fetch(GOOGLE_SHEET_WEBAPP_URL, {
         method: 'POST',
@@ -873,17 +891,17 @@
         body: JSON.stringify(payload)
       })
       .then(() => {
-        statusDiv.innerText = `✓ മാർക്ക് '${QUIZ_SHEET_NAME}' എന്ന ഷീറ്റ് ടാബിലേക്ക് രേഖപ്പെടുത്തി!`;
+        statusDiv.innerText = `✓ മാർക്ക് '${QUIZ_SHEET_NAME}' എന്ന ഷീറ്റ് ടാബിലേക്ക് രേഖപ്പെടുത്തി!`;[cite: 3]
         statusDiv.className = "text-xs text-emerald-400";
       })
       .catch(() => {
-        statusDiv.innerText = "ഡാറ്റ സേവ് ചെയ്യുന്നതിൽ ചെറിയ തടസ്സം നേരിട്ടു.";
+        statusDiv.innerText = "ഡാറ്റ സേവ് ചെയ്യുന്നതിൽ ചെറിയ തടസ്സം നേരിട്ടു.";[cite: 3]
         statusDiv.className = "text-xs text-rose-400";
       });
     }
 
     function sendReportQuestionToGoogleSheet(qNum, reason) {
-      if (!GOOGLE_SHEET_WEBAPP_URL || GOOGLE_SHEET_WEBAPP_URL.includes("YOUR_APPS_SCRIPT_WEBAPP_URL_HERE")) return;
+      if (!GOOGLE_SHEET_WEBAPP_URL || GOOGLE_SHEET_WEBAPP_URL.includes("YOUR_APPS_SCRIPT_WEBAPP_URL_HERE")) return;[cite: 3]
       fetch(GOOGLE_SHEET_WEBAPP_URL, {
         method: 'POST',
         mode: 'no-cors',
@@ -894,31 +912,31 @@
           questionNumber: qNum,
           reason: reason
         })
-      });
+      });[cite: 3]
     }
 
     function renderSolutions() {
-      const cont = document.getElementById('solutionsContainer');
-      cont.innerHTML = '';
-      const letters = ['A', 'B', 'C', 'D'];
+      const cont = document.getElementById('solutionsContainer');[cite: 3]
+      cont.innerHTML = '';[cite: 3]
+      const letters = ['A', 'B', 'C', 'D'];[cite: 3]
 
       questionsData.forEach((q, idx) => {
-        const uAns = userAnswers[idx];
-        const isCorrect = uAns === q.ans;
-        const isSkipped = uAns === null;
+        const uAns = userAnswers[idx];[cite: 3]
+        const isCorrect = uAns === q.ans;[cite: 3]
+        const isSkipped = uAns === null;[cite: 3]
 
         let badge = isSkipped 
-          ? '<span class="px-2 py-0.5 rounded text-xs bg-slate-700 text-slate-300">Skipped</span>'
+          ? '<span class="px-2 py-0.5 rounded text-xs bg-slate-700 text-slate-300">Skipped</span>' 
           : isCorrect 
-          ? '<span class="px-2 py-0.5 rounded text-xs bg-emerald-950 text-emerald-400 border border-emerald-800 font-bold">+1.00 Mark (ശരിയുത്തരം)</span>'
-          : '<span class="px-2 py-0.5 rounded text-xs bg-rose-950 text-rose-400 border border-rose-800 font-bold">-0.33 Mark (തെറ്റ്)</span>';
+          ? '<span class="px-2 py-0.5 rounded text-xs bg-emerald-950 text-emerald-400 border border-emerald-800 font-bold">+1.00 Mark (ശരിയുത്തരം)</span>' 
+          : '<span class="px-2 py-0.5 rounded text-xs bg-rose-950 text-rose-400 border border-rose-800 font-bold">-0.33 Mark (തെറ്റ്)</span>';[cite: 3]
 
-        let optsHtml = '<div class="grid grid-cols-1 sm:grid-cols-2 gap-2 mt-2">';
+        let optsHtml = '<div class="grid grid-cols-1 sm:grid-cols-2 gap-2 mt-2">';[cite: 3]
         q.options.forEach((opt, oIdx) => {
-          let c = 'p-2.5 rounded-lg text-xs flex items-center space-x-2 border ';
-          if (oIdx === q.ans) c += 'border-emerald-500 bg-emerald-950/40 text-emerald-300 font-semibold';
-          else if (oIdx === uAns && !isCorrect) c += 'border-rose-500 bg-rose-950/40 text-rose-300 line-through';
-          else c += 'border-slate-800 text-slate-400';
+          let c = 'p-2.5 rounded-lg text-xs flex items-center space-x-2 border ';[cite: 3]
+          if (oIdx === q.ans) c += 'border-emerald-500 bg-emerald-950/40 text-emerald-300 font-semibold';[cite: 3]
+          else if (oIdx === uAns && !isCorrect) c += 'border-rose-500 bg-rose-950/40 text-rose-300 line-through';[cite: 3]
+          else c += 'border-slate-800 text-slate-400';[cite: 3]
 
           optsHtml += `
             <div class="${c}">
@@ -927,12 +945,12 @@
               ${oIdx === q.ans ? '<span class="ml-auto text-emerald-400 font-bold">✓ ശരി</span>' : ''}
               ${oIdx === uAns && !isCorrect ? '<span class="ml-auto text-rose-400 font-bold">✗ നിങ്ങൾ തിരഞ്ഞെടുത്തത്</span>' : ''}
             </div>
-          `;
+          `;[cite: 3]
         });
-        optsHtml += '</div>';
+        optsHtml += '</div>';[cite: 3]
 
-        const item = document.createElement('div');
-        item.className = 'p-4 rounded-xl border border-slate-700 bg-slate-900/70 space-y-2';
+        const item = document.createElement('div');[cite: 3]
+        item.className = 'p-4 rounded-xl border border-slate-700 bg-slate-900/70 space-y-2';[cite: 3]
         item.innerHTML = `
           <div class="flex justify-between items-start gap-2">
             <span class="font-bold text-emerald-400 text-sm">ചോദ്യം ${idx + 1}</span>
@@ -949,94 +967,94 @@
             <span class="font-bold text-emerald-400">വിശദീകരണം:</span>
             <span class="text-slate-300 ml-1">${q.exp}</span>
           </div>
-        `;
-        cont.appendChild(item);
+        `;[cite: 3]
+        cont.appendChild(item);[cite: 3]
       });
     }
 
     document.getElementById('downloadPdfBtn').addEventListener('click', () => {
-      const element = document.getElementById('pdfExportWrapper');
+      const element = document.getElementById('pdfExportWrapper');[cite: 3]
       const opt = {
         margin:       [10, 10, 10, 10],
         filename:     `${currentUser.name}_Economics_Set1_Scorecard.pdf`,
         image:        { type: 'jpeg', quality: 0.98 },
         html2canvas:  { scale: 2, useCORS: true, backgroundColor: '#1e293b' },
         jsPDF:        { unit: 'mm', format: 'a4', orientation: 'portrait' }
-      };
+      };[cite: 3]
 
-      const btn = document.getElementById('downloadPdfBtn');
-      btn.innerText = 'PDF തയ്യാറാക്കുന്നു...';
-      btn.disabled = true;
+      const btn = document.getElementById('downloadPdfBtn');[cite: 3]
+      btn.innerText = 'PDF തയ്യാറാക്കുന്നു...';[cite: 3]
+      btn.disabled = true;[cite: 3]
 
       html2pdf().set(opt).from(element).save().then(() => {
         btn.innerHTML = `
           <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
           <span>PDF ഡൗൺലോഡ് ആയി!</span>
-        `;
+        `;[cite: 3]
         setTimeout(() => {
           btn.innerHTML = `
             <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path></svg>
             <span>സ്കോർകാർഡ് PDF</span>
-          `;
-          btn.disabled = false;
-        }, 3000);
+          `;[cite: 3]
+          btn.disabled = false;[cite: 3]
+        }, 3000);[cite: 3]
       });
     });
 
     function fetchLiveLeaderboard() {
-      const modal = document.getElementById('leaderboardModal');
-      const loader = document.getElementById('leaderboardLoading');
-      const wrapper = document.getElementById('leaderboardTableWrapper');
-      const tbody = document.getElementById('leaderboardBody');
+      const modal = document.getElementById('leaderboardModal');[cite: 3]
+      const loader = document.getElementById('leaderboardLoading');[cite: 3]
+      const wrapper = document.getElementById('leaderboardTableWrapper');[cite: 3]
+      const tbody = document.getElementById('leaderboardBody');[cite: 3]
 
-      modal.classList.remove('hidden');
-      loader.classList.remove('hidden');
-      wrapper.classList.add('hidden');
-      tbody.innerHTML = '';
+      modal.classList.remove('hidden');[cite: 3]
+      loader.classList.remove('hidden');[cite: 3]
+      wrapper.classList.add('hidden');[cite: 3]
+      tbody.innerHTML = '';[cite: 3]
 
       if (!GOOGLE_SHEET_WEBAPP_URL || GOOGLE_SHEET_WEBAPP_URL.includes("YOUR_APPS_SCRIPT_WEBAPP_URL_HERE")) {
-        loader.innerText = "Google Apps Script URL സെറ്റ് ചെയ്തിട്ടില്ല.";
+        loader.innerText = "Google Apps Script URL സെറ്റ് ചെയ്തിട്ടില്ല.";[cite: 3]
         return;
       }
 
-      fetch(`${GOOGLE_SHEET_WEBAPP_URL}?sheet=${encodeURIComponent(QUIZ_SHEET_NAME)}`)
+      fetch(`${GOOGLE_SHEET_WEBAPP_URL}?sheet=${encodeURIComponent(QUIZ_SHEET_NAME)}`)[cite: 3]
         .then(res => res.json())
         .then(data => {
-          loader.classList.add('hidden');
-          wrapper.classList.remove('hidden');
+          loader.classList.add('hidden');[cite: 3]
+          wrapper.classList.remove('hidden');[cite: 3]
 
           if (!data || data.length === 0) {
-            tbody.innerHTML = '<tr><td colspan="4" class="py-6 text-center text-slate-500">ഇതുവരെ ആരും പരീക്ഷ പൂർത്തിയാക്കിയിട്ടില്ല.</td></tr>';
+            tbody.innerHTML = '<tr><td colspan="4" class="py-6 text-center text-slate-500">ഇതുവരെ ആരും പരീക്ഷ പൂർത്തിയാക്കിയിട്ടില്ല.</td></tr>';[cite: 3]
             return;
           }
 
-          data.sort((a, b) => b.score - a.score || b.correct - a.correct);
+          data.sort((a, b) => b.score - a.score || b.correct - a.correct);[cite: 3]
 
           data.forEach((entry, idx) => {
-            const masked = entry.phone ? String(entry.phone).substring(0, 5) + '*****' : '---';
-            const row = document.createElement('tr');
-            row.className = 'hover:bg-slate-700/30 text-slate-300';
+            const masked = entry.phone ? String(entry.phone).substring(0, 5) + '*****' : '---';[cite: 3]
+            const row = document.createElement('tr');[cite: 3]
+            row.className = 'hover:bg-slate-700/30 text-slate-300';[cite: 3]
             row.innerHTML = `
               <td class="py-2.5 px-3 font-mono font-bold">${idx + 1}</td>
               <td class="py-2.5 px-3 font-medium">${entry.name}</td>
               <td class="py-2.5 px-3 font-mono text-xs text-slate-400">${masked}</td>
               <td class="py-2.5 px-3 text-right font-mono font-bold text-emerald-400">${Number(entry.score).toFixed(2)}</td>
-            `;
-            tbody.appendChild(row);
+            `;[cite: 3]
+            tbody.appendChild(row);[cite: 3]
           });
         })
         .catch(() => {
-          loader.innerText = "റാങ്ക് ലിസ്റ്റ് ലോഡ് ചെയ്യാൻ കഴിഞ്ഞില്ല. ദയവായി അല്പം കഴിഞ്ഞ് ശ്രമിക്കുക.";
+          loader.innerText = "റാങ്ക് ലിസ്റ്റ് ലോഡ് ചെയ്യാൻ കഴിഞ്ഞില്ല. ദയവായി അല്പം കഴിഞ്ഞ് ശ്രമിക്കുക.";[cite: 3]
         });
     }
 
     document.getElementById('viewRankBtn')?.addEventListener('click', fetchLiveLeaderboard);
-    document.getElementById('showLeaderboardBtn').onclick = fetchLiveLeaderboard;
+    document.getElementById('showLeaderboardBtn').onclick = fetchLiveLeaderboard;[cite: 3]
     document.getElementById('closeLeaderboardBtn').onclick = () => {
-      document.getElementById('leaderboardModal').classList.add('hidden');
+      document.getElementById('leaderboardModal').classList.add('hidden');[cite: 3]
     };
     document.getElementById('closeLeaderboardBtn2').onclick = () => {
-      document.getElementById('leaderboardModal').classList.add('hidden');
+      document.getElementById('leaderboardModal').classList.add('hidden');[cite: 3]
     };
   </script>
 </body>
