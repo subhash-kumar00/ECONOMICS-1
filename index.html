@@ -36,8 +36,8 @@
       <button id="fullscreenToggleBtn" class="px-3 py-1.5 bg-slate-700 hover:bg-slate-600 text-slate-200 text-xs font-semibold rounded-lg border border-slate-600 transition flex items-center space-x-1">
         <span>⛶ Fullscreen</span>
       </button>
-      <div id="userInfoHeader" class="hidden text-right">
-        <span id="displayUser" class="text-xs sm:text-sm font-semibold text-slate-200"></span>
+      <div class="text-right">
+        <span id="displayUser" class="text-xs sm:text-sm font-semibold text-slate-200">പരീക്ഷാർത്ഥി</span>
         <p class="text-[10px] text-emerald-400 font-mono">+1.00 / -0.33 Mark</p>
       </div>
     </div>
@@ -45,54 +45,13 @@
 
   <main class="flex-1 flex flex-col items-center justify-center p-3 sm:p-6 w-full max-w-4xl mx-auto">
     
-    <!-- Step 1: Registration Screen -->
-    <div id="loginCard" class="w-full max-w-md bg-slate-800 border border-slate-700 rounded-2xl p-6 sm:p-8 shadow-2xl">
-      <div class="text-center mb-6">
-        <span class="inline-block p-3 rounded-2xl bg-emerald-500/10 text-emerald-400 mb-2">
-          <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
-        </span>
-        <h2 class="text-xl sm:text-2xl font-bold text-white">മോഡൽ എക്സാം</h2>
-        <p class="text-sm text-slate-400 mt-1">പേരും മൊബൈൽ നമ്പറും നൽകി പരീക്ഷ ആരംഭിക്കുക.</p>
-      </div>
-
-      <form id="loginForm" class="space-y-4">
-        <div>
-          <label class="block text-xs font-semibold text-slate-300 uppercase tracking-wider mb-1">പൂർണ്ണമായ പേര്</label>
-          <input type="text" id="candName" required class="w-full bg-slate-900 border border-slate-700 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-emerald-500 transition text-sm" placeholder="ഉദാ: സുഭാഷ് കുമാർ">
-        </div>
-
-        <div>
-          <label class="block text-xs font-semibold text-slate-300 uppercase tracking-wider mb-1">മൊബൈൽ നമ്പർ</label>
-          <div class="flex items-center space-x-2">
-            <span class="bg-slate-900 border border-slate-700 px-3 py-3 rounded-xl text-slate-300 font-mono text-xs select-none">🇮🇳 +91</span>
-            <input type="tel" id="candPhone" pattern="[0-9]{10}" required class="flex-1 bg-slate-900 border border-slate-700 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-emerald-500 transition font-mono tracking-wider text-sm" placeholder="10 അക്ക നമ്പർ">
-          </div>
-        </div>
-
-        <div class="bg-slate-900/70 p-3.5 rounded-xl border border-slate-700 text-xs space-y-1 text-slate-300">
-          <p class="font-bold text-emerald-400">പരീക്ഷാ നിർദ്ദേശങ്ങൾ:</p>
-          <p class="text-amber-300 font-semibold">• സമയം: 25 മിനിറ്റ് | ആകെ ചോദ്യങ്ങൾ: 25</p>
-          <p>• ശരിയുത്തരം: +1 മാർക്ക് | തെറ്റായ ഉത്തരം: -0.33 മാർക്ക്</p>
-          <p class="text-emerald-400 font-semibold">• കുറഞ്ഞത് 8 മാർക്ക് നേടിയാൽ ഔദ്യോഗിക PDF ലഭ്യമാകും</p>
-        </div>
-
-        <button type="submit" class="w-full py-3.5 bg-gradient-to-r from-emerald-500 to-teal-600 hover:from-emerald-600 text-slate-950 font-bold rounded-xl transition transform active:scale-95 shadow-lg text-sm">
-          തുടരുക
-        </button>
-      </form>
-
-      <div class="mt-4 text-center">
-        <button id="viewRankBtn" type="button" class="text-xs text-slate-400 hover:text-emerald-400 underline">നിലവിലെ ലൈവ് റാങ്ക് ലിസ്റ്റ് കാണുക</button>
-      </div>
-    </div>
-
-    <!-- Step 1.5: Motivation Screen with Direct Start Button -->
-    <div id="motivationScreen" class="w-full max-w-lg bg-slate-800 border-2 border-emerald-500/60 rounded-3xl p-8 sm:p-10 shadow-2xl text-center hidden space-y-6 animate-pop">
+    <!-- Step 1: Motivation Screen with Direct Start Button (ലോഗിൻ ഫോം ഒഴിവാക്കി) -->
+    <div id="motivationScreen" class="w-full max-w-lg bg-slate-800 border-2 border-emerald-500/60 rounded-3xl p-8 sm:p-10 shadow-2xl text-center space-y-6 animate-pop">
       <div class="w-20 h-20 bg-gradient-to-tr from-emerald-500 to-teal-600 rounded-full flex items-center justify-center mx-auto text-4xl shadow-xl animate-bounce">
         📈
       </div>
       <div>
-        <h2 id="motivateName" class="text-2xl sm:text-3xl font-black text-white"></h2>
+        <h2 id="motivateName" class="text-2xl sm:text-3xl font-black text-white">ഹലോ! ✨</h2>
         <p class="text-emerald-400 font-extrabold text-xs sm:text-sm mt-1 uppercase tracking-widest">സാമ്പത്തിക ശാസ്ത്ര പരീക്ഷയിലേക്ക് സ്വാഗതം!</p>
       </div>
 
@@ -126,7 +85,7 @@
           <button id="fontIncrease" class="px-2 py-0.5 bg-slate-800 hover:bg-slate-700 text-slate-200 font-bold rounded text-xs">A+</button>
         </div>
 
-        <div class="flex items-center space-x-2 bg-slate-900/90 border border-slate-700 px-3 py-1 rounded-xl shadow-inner">
+        <div class="flex items-center space-x-2 bg-slate-900/90 border border-slate-700 px-3.5 py-1 rounded-xl shadow-inner">
           <svg class="w-4 h-4 text-emerald-400 animate-pulse" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
           <span class="text-xs font-semibold text-slate-400">സമയം:</span>
           <span id="examTimer" class="font-mono text-sm font-black text-emerald-400">25:00</span>
@@ -168,16 +127,29 @@
 
     <!-- Step 3: Result Screen & Interactive Reviews -->
     <div id="resultScreen" class="w-full hidden space-y-6">
-      <div class="bg-slate-800 border border-slate-700 rounded-2xl p-6 sm:p-8 shadow-2xl text-center">
-        <h2 class="text-2xl sm:text-3xl font-black text-emerald-400 mb-1">പരീക്ഷാ ഫലം (Exam Result)</h2>
-        <p class="text-sm text-slate-400 mb-4" id="resultCandidateInfo"></p>
+      <div class="bg-slate-800 border border-slate-700 rounded-2xl p-6 sm:p-8 shadow-2xl text-center space-y-5">
+        
+        <div class="flex justify-end">
+          <button type="button" onclick="returnToHomeWithData()" class="px-4 py-2 bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-black rounded-xl text-xs transition shadow flex items-center space-x-1.5">
+            <span>🏠</span>
+            <span>ഹോം പേജിലേക്ക് മടങ്ങുക (Save Result)</span>
+          </button>
+        </div>
+
+        <div>
+          <h2 class="text-2xl sm:text-3xl font-black text-emerald-400 mb-1">പരീക്ഷാ ഫലം (Exam Result)</h2>
+          <p class="text-sm text-slate-400 mb-1" id="resultCandidateInfo"></p>
+          <span class="inline-block text-[11px] text-emerald-400 bg-emerald-950/60 px-3 py-1 rounded-full border border-emerald-800">
+            ✓ ഫലം പ്രൊഫൈൽ ഹിസ്റ്ററിയിൽ രേഖപ്പെടുത്തിയിട്ടുണ്ട്
+          </span>
+        </div>
 
         <!-- Dynamic Motivation Badge -->
-        <div id="scoreMotivationBadge" class="max-w-xl mx-auto mb-6 p-4 rounded-2xl border text-sm leading-relaxed transition shadow-inner"></div>
+        <div id="scoreMotivationBadge" class="max-w-xl mx-auto p-4 rounded-2xl border text-sm leading-relaxed transition shadow-inner"></div>
 
         <!-- Clickable Score Cards -->
-        <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 max-w-2xl mx-auto mb-6">
-          <div class="bg-slate-900/80 p-3.5 rounded-xl border border-slate-750">
+        <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 max-w-2xl mx-auto">
+          <div class="bg-slate-900/80 p-3.5 rounded-xl border border-slate-700">
             <span class="text-[11px] text-slate-400 block font-semibold uppercase">നെറ്റ് സ്കോർ</span>
             <span id="finalScore" class="text-2xl sm:text-3xl font-black text-emerald-400 font-mono">0.00</span>
             <span class="text-[10px] text-slate-500 block">25 ൽ</span>
@@ -202,26 +174,27 @@
           </div>
         </div>
 
-        <div id="sheetStatus" class="text-xs text-emerald-400 mb-4 animate-pulse">സ്കോർ ഗൂഗിൾ ഷീറ്റിലേക്ക് രേഖപ്പെടുത്തുന്നു...</div>
+        <div id="sheetStatus" class="text-xs text-emerald-400 animate-pulse">സ്കോർ ഗൂഗിൾ ഷീറ്റിലേക്ക് രേഖപ്പെടുത്തുന്നു...</div>
 
         <!-- 8 Mark Lock Box -->
-        <div id="pdfLockNotice" class="hidden max-w-md mx-auto mb-5 p-3.5 bg-rose-950/40 border border-rose-800/80 rounded-xl text-xs text-rose-300">
+        <div id="pdfLockNotice" class="hidden max-w-md mx-auto p-3.5 bg-rose-950/40 border border-rose-800/80 rounded-xl text-xs text-rose-300">
           ⚠️ <strong>ശ്രദ്ധിക്കുക:</strong> കുറഞ്ഞത് 8 മാർക്ക് നേടിയാൽ മാത്രമേ ഔദ്യോഗിക നോട്ടുകൾ PDF ഡൗൺലോഡ് ചെയ്യാൻ സാധിക്കൂ. നിങ്ങളുടെ നിലവിലെ സ്കോർ 8-ൽ താഴെയാണ്.
         </div>
 
-        <div class="flex flex-wrap items-center justify-center gap-3">
+        <div class="flex flex-wrap items-center justify-center gap-3 pt-2">
           <button id="downloadOriginalNoteBtn" class="hidden px-5 py-2.5 bg-gradient-to-r from-emerald-500 to-teal-600 hover:from-emerald-600 text-slate-950 font-black rounded-xl text-sm transition shadow-lg flex items-center space-x-2">
             <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M9 19l3 3m0 0l3-3m-3 3V10"></path></svg>
             <span>ഔദ്യോഗിക നോട്ടുകൾ PDF ഡൗൺലോഡ് ചെയ്യുക 📥</span>
           </button>
 
-          <button id="downloadPdfBtn" class="px-5 py-2.5 bg-rose-600 hover:bg-rose-700 text-white font-bold rounded-xl text-sm transition shadow-lg flex items-center space-x-2">
+          <button type="button" id="downloadPdfBtn" class="px-5 py-2.5 bg-rose-600 hover:bg-rose-700 text-white font-bold rounded-xl text-sm transition shadow-lg flex items-center space-x-2">
             <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path></svg>
             <span>സ്കോർകാർഡ് PDF</span>
           </button>
 
-          <button id="showLeaderboardBtn" class="px-5 py-2.5 bg-emerald-500 hover:bg-emerald-600 text-slate-950 font-bold rounded-xl text-sm transition shadow-lg">
-            ലൈവ് റാങ്ക് ലിസ്റ്റ് കാണുക
+          <button type="button" onclick="returnToHomeWithData()" class="px-5 py-2.5 bg-slate-700 hover:bg-slate-600 text-white font-bold rounded-xl text-sm transition flex items-center space-x-1.5">
+            <span>🏠</span>
+            <span>ഹോം പോർട്ടൽ</span>
           </button>
         </div>
       </div>
@@ -258,36 +231,6 @@
       </div>
     </div>
 
-    <!-- Leaderboard Modal -->
-    <div id="leaderboardModal" class="fixed inset-0 bg-slate-950/80 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
-      <div class="bg-slate-800 border border-slate-700 rounded-2xl max-w-xl w-full p-6 shadow-2xl flex flex-col max-h-[85vh]">
-        <div class="flex items-center justify-between border-b border-slate-700 pb-4 mb-4">
-          <div>
-            <h3 class="text-xl font-bold text-emerald-400">ലൈവ് റാങ്ക് ലിസ്റ്റ് (Google Sheet)</h3>
-            <p class="text-xs text-slate-400">ആദ്യ ശ്രമത്തിലെ സ്കോർ അടിസ്ഥാനമാക്കി ക്രമീകരിച്ചത്</p>
-          </div>
-          <button id="closeLeaderboardBtn" class="text-slate-400 hover:text-white text-2xl font-bold">&times;</button>
-        </div>
-        <div id="leaderboardLoading" class="py-10 text-center text-sm text-slate-400">ഗൂഗിൾ ഷീറ്റിൽ നിന്നും റാങ്ക് ലിസ്റ്റ് ശേഖരിക്കുന്നു...</div>
-        <div class="flex-1 overflow-y-auto custom-scroll pr-1 hidden" id="leaderboardTableWrapper">
-          <table class="w-full text-left text-sm">
-            <thead class="text-xs uppercase bg-slate-900/80 text-slate-400 sticky top-0">
-              <tr>
-                <th class="py-2.5 px-3">റാങ്ക്</th>
-                <th class="py-2.5 px-3">പേര്</th>
-                <th class="py-2.5 px-3">മൊബൈൽ</th>
-                <th class="py-2.5 px-3 text-right">മാർക്ക്</th>
-              </tr>
-            </thead>
-            <tbody id="leaderboardBody" class="divide-y divide-slate-700"></tbody>
-          </table>
-        </div>
-        <div class="pt-4 border-t border-slate-700 mt-4 text-center">
-          <button id="closeLeaderboardBtn2" class="px-4 py-2 bg-slate-700 hover:bg-slate-600 rounded-lg text-xs font-semibold text-white">ക്ലോസ് ചെയ്യുക</button>
-        </div>
-      </div>
-    </div>
-
   </main>
 
   <footer class="text-center py-3 text-[11px] text-slate-500 border-t border-slate-800">
@@ -295,14 +238,11 @@
   </footer>
 
   <script>
-    // =========================================================================
-    // ⚠️ 1. കോൺഫിഗറേഷൻ വിവരങ്ങൾ:
-    // =========================================================================
-    const GOOGLE_SHEET_WEBAPP_URL = "https://script.google.com/macros/s/AKfycbztE9bExjlH5a9Y_O8pU9CzVZy5zl-wzycDISurGzxqwuWB71Nxquzpg00Ocf2QR9Zb/exec";[cite: 4]
-    const QUIZ_SHEET_NAME = "Economics_Set1";[cite: 4]
-    const ORIGINAL_PDF_URL = "https://drive.google.com/file/d/1aecXW0ASLm8F-z8pSSjW-u7ksDm4sIHq/view?usp=sharing";[cite: 4]
+    let GOOGLE_SHEET_WEBAPP_URL = "https://script.google.com/macros/s/AKfycbztE9bExjlH5a9Y_O8pU9CzVZy5zl-wzycDISurGzxqwuWB71Nxquzpg00Ocf2QR9Zb/exec";
+    const QUIZ_SHEET_NAME = "Economics_Set1";
+    let ORIGINAL_PDF_URL = "https://drive.google.com/file/d/1aecXW0ASLm8F-z8pSSjW-u7ksDm4sIHq/view?usp=sharing";
+    let examTitle = "സാമ്പത്തിക ശാസ്ത്രം - സെറ്റ് 1";
 
-    // ECONOMICS 1.pdf-ൽ നിന്നുള്ള 25 ചോദ്യങ്ങളും ഉത്തരങ്ങളും വിശദീകരണങ്ങളും
     const questionsData = [
       { 
         q: "ഒരു സാമ്പത്തിക വർഷത്തിൽ രാജ്യത്തിൻ്റെ ആഭ്യന്തര അതിർത്തിക്കുള്ളിൽ ഉൽപ്പാദിപ്പിക്കപ്പെടുന്ന അന്തിമ സാധനങ്ങളുടെയും സേവനങ്ങളുടെയും ആകെ പണമൂല്യം ഏതാണ്?", 
@@ -456,25 +396,48 @@
       }
     ];
 
-    let currentUser = null;[cite: 4]
-    let currentIndex = 0;[cite: 4]
-    let userAnswers = new Array(questionsData.length).fill(null);[cite: 4]
-    let currentFontSizeLevel = 1;[cite: 4]
+    let currentUser = { name: "പരീക്ഷാർത്ഥി", phone: "0000000000" };
+    let currentIndex = 0;
+    let userAnswers = new Array(questionsData.length).fill(null);
+    let currentFontSizeLevel = 1;
 
     const fontSizes = [
       { q: "text-sm sm:text-base" },
       { text: "text-base sm:text-lg" },
       { text: "text-lg sm:text-xl" },
       { text: "text-xl sm:text-2xl" }
-    ];[cite: 4]
+    ];
 
-    let timeLeft = 25 * 60;[cite: 4]
-    let timerInterval = null;[cite: 4]
+    let timeLeft = 25 * 60;
+    let timerInterval = null;
 
-    const loginCard = document.getElementById('loginCard');[cite: 4]
-    const motivationScreen = document.getElementById('motivationScreen');[cite: 4]
-    const quizScreen = document.getElementById('quizScreen');[cite: 4]
-    const resultScreen = document.getElementById('resultScreen');[cite: 4]
+    const motivationScreen = document.getElementById('motivationScreen');
+    const quizScreen = document.getElementById('quizScreen');
+    const resultScreen = document.getElementById('resultScreen');
+
+    // 🌟 URL-ൽ നിന്ന് വിവരങ്ങൾ എടുത്ത് നേരിട്ട് മോട്ടിവേഷൻ കാർഡ് കാണിക്കുന്നു
+    window.addEventListener('DOMContentLoaded', () => {
+      const urlParams = new URLSearchParams(window.location.search);
+      const passedName = urlParams.get('name');
+      const passedPhone = urlParams.get('phone');
+      const passedTitle = urlParams.get('title');
+      const passedSheet = urlParams.get('sheetUrl');
+      const passedPdf = urlParams.get('pdfUrl');
+
+      if (passedName) currentUser.name = decodeURIComponent(passedName);
+      if (passedPhone) currentUser.phone = decodeURIComponent(passedPhone);
+      if (passedTitle) {
+        examTitle = decodeURIComponent(passedTitle);
+      }
+      if (passedSheet) GOOGLE_SHEET_WEBAPP_URL = decodeURIComponent(passedSheet);
+      if (passedPdf) ORIGINAL_PDF_URL = decodeURIComponent(passedPdf);
+
+      document.getElementById('displayUser').innerText = `${currentUser.name} (+91 ${currentUser.phone})`;
+      document.getElementById('motivateName').innerText = `ഹലോ, ${currentUser.name}! ✨`;
+
+      // മോട്ടിവേഷൻ സ്ക്രീൻ നേരിട്ട് കാണിക്കുന്നു (ലോഗിൻ കാർഡ് ഒഴിവാക്കി)
+      motivationScreen.classList.remove('hidden');
+    });
 
     document.getElementById('fullscreenToggleBtn').onclick = () => {
       if (!document.fullscreenElement) {
@@ -484,29 +447,24 @@
       } else {
         if (document.exitFullscreen) { document.exitFullscreen(); }
       }
-    };[cite: 4]
+    };
 
     document.getElementById('fontDecrease').onclick = () => {
-      if (currentFontSizeLevel > 0) { currentFontSizeLevel--; updateFontSize(); }[cite: 4]
-    };[cite: 4]
+      if (currentFontSizeLevel > 0) { currentFontSizeLevel--; updateFontSize(); }
+    };
     document.getElementById('fontReset').onclick = () => {
-      currentFontSizeLevel = 1; updateFontSize();[cite: 4]
-    };[cite: 4]
+      currentFontSizeLevel = 1; updateFontSize();
+    };
     document.getElementById('fontIncrease').onclick = () => {
-      if (currentFontSizeLevel < fontSizes.length - 1) { currentFontSizeLevel++; updateFontSize(); }[cite: 4]
-    };[cite: 4]
+      if (currentFontSizeLevel < fontSizes.length - 1) { currentFontSizeLevel++; updateFontSize(); }
+    };
 
     function updateFontSize() {
-      const qElem = document.getElementById('qText');[cite: 4]
-      qElem.className = `${fontSizes[currentFontSizeLevel].q} font-semibold leading-relaxed text-slate-100 whitespace-pre-line transition-all duration-200`;[cite: 4]
+      const qElem = document.getElementById('qText');
+      qElem.className = `${fontSizes[currentFontSizeLevel].q} font-semibold leading-relaxed text-slate-100 whitespace-pre-line transition-all duration-200`;
     }
 
-    function showMotivationScreen() {
-      loginCard.classList.add('hidden');
-      document.getElementById('motivateName').innerText = `ഹലോ, ${currentUser.name}! ✨`;
-      motivationScreen.classList.remove('hidden');
-    }
-
+    // ബട്ടൺ ക്ലിക്ക് ചെയ്യുമ്പോൾ നേരിട്ട് പരീക്ഷ തുടങ്ങുന്നു
     function startExamDirectly() {
       motivationScreen.classList.add('hidden');
       quizScreen.classList.remove('hidden');
@@ -516,200 +474,218 @@
     }
 
     function startTimer() {
-      const timerDisplay = document.getElementById('examTimer');[cite: 4]
+      const timerDisplay = document.getElementById('examTimer');
       timerInterval = setInterval(() => {
         if (timeLeft <= 0) {
-          clearInterval(timerInterval);[cite: 4]
-          alert('അനുവദിച്ച 25 മിനിറ്റ് സമയം പൂർത്തിയായിരിക്കുന്നു! പരീക്ഷ തനിയെ സബ്മിറ്റ് ചെയ്യുന്നു.');[cite: 4]
-          finishExam();[cite: 4]
-          return;[cite: 4]
+          clearInterval(timerInterval);
+          alert('അനുവദിച്ച 25 മിനിറ്റ് സമയം പൂർത്തിയായിരിക്കുന്നു! പരീക്ഷ തനിയെ സബ്മിറ്റ് ചെയ്യുന്നു.');
+          finishExam();
+          return;
         }
 
-        timeLeft--;[cite: 4]
+        timeLeft--;
 
-        const minutes = Math.floor(timeLeft / 60);[cite: 4]
-        const seconds = timeLeft % 60;[cite: 4]
+        const minutes = Math.floor(timeLeft / 60);
+        const seconds = timeLeft % 60;
 
-        const mStr = minutes < 10 ? '0' + minutes : minutes;[cite: 4]
-        const sStr = seconds < 10 ? '0' + seconds : seconds;[cite: 4]
-        timerDisplay.innerText = `${mStr}:${sStr}`;[cite: 4]
+        const mStr = minutes < 10 ? '0' + minutes : minutes;
+        const sStr = seconds < 10 ? '0' + seconds : seconds;
+        timerDisplay.innerText = `${mStr}:${sStr}`;
 
         if (timeLeft <= 180) {
-          timerDisplay.classList.remove('text-emerald-400');[cite: 4]
-          timerDisplay.classList.add('text-rose-500', 'animate-pulse');[cite: 4]
+          timerDisplay.classList.remove('text-emerald-400');
+          timerDisplay.classList.add('text-rose-500', 'animate-pulse');
         }
-      }, 1000);[cite: 4]
+      }, 1000);
     }
 
     function renderQuestion(index) {
-      const q = questionsData[index];[cite: 4]
-      document.getElementById('questionBadge').innerText = `ചോദ്യം ${index + 1} / ${questionsData.length}`;[cite: 4]
-      document.getElementById('qText').innerText = `${index + 1}. ${q.q}`;[cite: 4]
+      const q = questionsData[index];
+      currentIndex = index;
+      document.getElementById('questionBadge').innerText = `ചോദ്യം ${index + 1} / ${questionsData.length}`;
+      document.getElementById('qText').innerText = `${index + 1}. ${q.q}`;
 
-      const optionsDiv = document.getElementById('optionsContainer');[cite: 4]
-      optionsDiv.innerHTML = '';[cite: 4]
-      const letters = ['A', 'B', 'C', 'D'];[cite: 4]
+      const optionsDiv = document.getElementById('optionsContainer');
+      optionsDiv.innerHTML = '';
+      const letters = ['A', 'B', 'C', 'D'];
 
       q.options.forEach((opt, idx) => {
-        const isSelected = userAnswers[index] === idx;[cite: 4]
-        const btn = document.createElement('button');[cite: 4]
-        btn.type = 'button';[cite: 4]
+        const isSelected = userAnswers[index] === idx;
+        const btn = document.createElement('button');
+        btn.type = 'button';
         btn.className = `w-full text-left p-3.5 rounded-xl border transition flex items-start space-x-3 ${
           isSelected 
             ? 'bg-emerald-500/20 border-emerald-500 text-emerald-200 ring-1 ring-emerald-500' 
             : 'bg-slate-900/60 border-slate-700 hover:bg-slate-700/50 text-slate-200'
-        }`;[cite: 4]
+        }`;
         btn.innerHTML = `
           <span class="w-6 h-6 rounded-lg flex items-center justify-center text-xs font-bold ${
             isSelected ? 'bg-emerald-500 text-slate-950 font-black' : 'bg-slate-800 text-slate-400'
           }">${letters[idx]}</span>
           <span class="text-xs sm:text-sm leading-relaxed mt-0.5">${opt}</span>
-        `;[cite: 4]
+        `;
         btn.onclick = () => {
-          userAnswers[index] = idx;[cite: 4]
-          renderQuestion(index);[cite: 4]
+          userAnswers[index] = idx;
+          renderQuestion(index);
         };
-        optionsDiv.appendChild(btn);[cite: 4]
+        optionsDiv.appendChild(btn);
       });
 
-      document.getElementById('prevBtn').disabled = (index === 0);[cite: 4]
-      document.getElementById('nextBtn').innerText = (index === questionsData.length - 1) ? "സബ്മിറ്റ് ചെയ്യുക ✓" : "Next ›";[cite: 4]
-      const answered = userAnswers.filter(a => a !== null).length;[cite: 4]
-      document.getElementById('answeredCountTxt').innerText = `പൂർത്തിയാക്കിയത്: ${answered}/${questionsData.length}`;[cite: 4]
-      updatePalette();[cite: 4]
+      document.getElementById('prevBtn').disabled = (index === 0);
+      document.getElementById('nextBtn').innerText = (index === questionsData.length - 1) ? "സബ്മിറ്റ് ചെയ്യുക ✓" : "Next ›";
+      const answered = userAnswers.filter(a => a !== null).length;
+      document.getElementById('answeredCountTxt').innerText = `പൂർത്തിയാക്കിയത്: ${answered}/${questionsData.length}`;
+      updatePalette();
     }
 
     document.getElementById('reportQuestionBtn').addEventListener('click', () => {
-      handleReportQuestion(currentIndex + 1);[cite: 4]
-    });[cite: 4]
+      handleReportQuestion(currentIndex + 1);
+    });
 
     function handleReportQuestion(qNum) {
-      const reason = prompt(`ചോദ്യം ${qNum} ൽ എന്തെങ്കിലും തെറ്റുകൾ ഉണ്ടെങ്കിൽ ദയവായി താഴെ രേഖപ്പെടുത്തുക:`);[cite: 4]
+      const reason = prompt(`ചോദ്യം ${qNum} ൽ എന്തെങ്കിലും തെറ്റുകൾ ഉണ്ടെങ്കിൽ ദയവായി താഴെ രേഖപ്പെടുത്തുക:`);
       if (reason && reason.trim()) {
-        sendReportQuestionToGoogleSheet(qNum, reason.trim());[cite: 4]
-        alert(`നന്ദി! ചോദ്യം ${qNum} ലെ തെറ്റ് വിജയകരമായി റിപ്പോർട്ട് ചെയ്തിരിക്കുന്നു.`);[cite: 4]
+        sendReportQuestionToGoogleSheet(qNum, reason.trim());
+        alert(`നന്ദി! ചോദ്യം ${qNum} ലെ തെറ്റ് വിജയകരമായി റിപ്പോർട്ട് ചെയ്തിരിക്കുന്നു.`);
       }
     }
 
     function buildPalette() {
-      const pal = document.getElementById('paletteContainer');[cite: 4]
-      pal.innerHTML = '';[cite: 4]
+      const pal = document.getElementById('paletteContainer');
+      pal.innerHTML = '';
       for (let i = 0; i < questionsData.length; i++) {
-        const b = document.createElement('button');[cite: 4]
-        b.id = `pal-${i}`;[cite: 4]
-        b.innerText = i + 1;[cite: 4]
-        b.className = 'w-7 h-7 rounded text-[11px] font-bold flex items-center justify-center border transition';[cite: 4]
-        b.onclick = () => { currentIndex = i; renderQuestion(currentIndex); };[cite: 4]
-        pal.appendChild(b);[cite: 4]
+        const b = document.createElement('button');
+        b.id = `pal-${i}`;
+        b.innerText = i + 1;
+        b.className = 'w-7 h-7 rounded text-[11px] font-bold flex items-center justify-center border transition';
+        b.onclick = () => { currentIndex = i; renderQuestion(currentIndex); };
+        pal.appendChild(b);
       }
-      updatePalette();[cite: 4]
+      updatePalette();
     }
 
     function updatePalette() {
       for (let i = 0; i < questionsData.length; i++) {
-        const b = document.getElementById(`pal-${i}`);[cite: 4]
-        if (!b) continue;[cite: 4]
+        const b = document.getElementById(`pal-${i}`);
+        if (!b) continue;
         if (i === currentIndex) {
-          b.className = 'w-7 h-7 rounded text-[11px] font-black border border-emerald-400 bg-emerald-400 text-slate-950';[cite: 4]
+          b.className = 'w-7 h-7 rounded text-[11px] font-black border border-emerald-400 bg-emerald-400 text-slate-950';
         } else if (userAnswers[i] !== null) {
-          b.className = 'w-7 h-7 rounded text-[11px] font-semibold border border-emerald-500/50 bg-emerald-950/60 text-emerald-400';[cite: 4]
+          b.className = 'w-7 h-7 rounded text-[11px] font-semibold border border-emerald-500/50 bg-emerald-950/60 text-emerald-400';
         } else {
-          b.className = 'w-7 h-7 rounded text-[11px] font-medium border border-slate-700 bg-slate-900 text-slate-400';[cite: 4]
+          b.className = 'w-7 h-7 rounded text-[11px] font-medium border border-slate-700 bg-slate-900 text-slate-400';
         }
       }
     }
 
     document.getElementById('nextBtn').onclick = () => {
       if (currentIndex < questionsData.length - 1) {
-        currentIndex++;[cite: 4]
-        renderQuestion(currentIndex);[cite: 4]
+        currentIndex++;
+        renderQuestion(currentIndex);
       } else {
-        finishExam();[cite: 4]
+        finishExam();
       }
-    };[cite: 4]
+    };
 
     document.getElementById('prevBtn').onclick = () => {
-      if (currentIndex > 0) { currentIndex--; renderQuestion(currentIndex); }[cite: 4]
-    };[cite: 4]
+      if (currentIndex > 0) { currentIndex--; renderQuestion(currentIndex); }
+    };
 
     document.getElementById('skipBtn').onclick = () => {
-      userAnswers[currentIndex] = null;[cite: 4]
+      userAnswers[currentIndex] = null;
       if (currentIndex < questionsData.length - 1) {
-        currentIndex++;[cite: 4]
-        renderQuestion(currentIndex);[cite: 4]
+        currentIndex++;
+        renderQuestion(currentIndex);
       } else {
-        finishExam();[cite: 4]
+        finishExam();
       }
-    };[cite: 4]
+    };
 
     document.getElementById('finishMidBtn').onclick = () => {
-      const answered = userAnswers.filter(a => a !== null).length;[cite: 4]
-      if (confirm(`നിങ്ങൾ 25-ൽ ${answered} ചോദ്യങ്ങൾക്ക് മാത്രമാണ് ഉത്തരം നൽകിയത്. ഇപ്പോൾ പരീക്ഷ അവസാനിപ്പിക്കണമെന്നുറപ്പാണോ?`)) {[cite: 4]
-        finishExam();[cite: 4]
+      const answered = userAnswers.filter(a => a !== null).length;
+      if (confirm(`നിങ്ങൾ 25-ൽ ${answered} ചോദ്യങ്ങൾക്ക് മാത്രമാണ് ഉത്തരം നൽകിയത്. ഇപ്പോൾ പരീക്ഷ അവസാനിപ്പിക്കണമെന്നുറപ്പാണോ?`)) {
+        finishExam();
       }
-    };[cite: 4]
+    };
 
     function finishExam() {
-      if (timerInterval) clearInterval(timerInterval);[cite: 4]
+      if (timerInterval) clearInterval(timerInterval);
 
-      let correct = 0, wrong = 0, skipped = 0;[cite: 4]
-      let wrongQuestionsList = [];[cite: 4]
+      let correct = 0, wrong = 0, skipped = 0;
+      let wrongQuestionsList = [];
 
       for (let i = 0; i < questionsData.length; i++) {
         if (userAnswers[i] === null) {
-          skipped++;[cite: 4]
+          skipped++;
         } else if (userAnswers[i] === questionsData[i].ans) {
-          correct++;[cite: 4]
+          correct++;
         } else {
-          wrong++;[cite: 4]
-          wrongQuestionsList.push(i + 1);[cite: 4]
+          wrong++;
+          wrongQuestionsList.push(i + 1);
         }
       }
 
-      let netScore = (correct * 1.0) - (wrong * 0.33333333);[cite: 4]
-      if (netScore < 0) netScore = 0;[cite: 4]
-      const formattedScore = netScore.toFixed(2);[cite: 4]
-      const scoreNum = parseFloat(formattedScore);[cite: 4]
+      let netScore = (correct * 1.0) - (wrong * 0.33333333);
+      if (netScore < 0) netScore = 0;
+      const formattedScore = netScore.toFixed(2);
+      const scoreNum = parseFloat(formattedScore);
 
-      document.getElementById('finalScore').innerText = formattedScore;[cite: 4]
-      document.getElementById('correctCount').innerText = correct;[cite: 4]
-      document.getElementById('wrongCount').innerText = wrong;[cite: 4]
-      document.getElementById('skipCount').innerText = skipped;[cite: 4]
-      document.getElementById('resultCandidateInfo').innerText = `പരീക്ഷാർത്ഥി: ${currentUser.name} | മൊബൈൽ: ${currentUser.phone}`;[cite: 4]
-      document.getElementById('pdfReportCandidateSubheader').innerText = `പരീക്ഷാർത്ഥി: ${currentUser.name} (${currentUser.phone}) | സ്കോർ: ${formattedScore} / 25 | ശരി: ${correct} | തെറ്റ്: ${wrong} | Skip: ${skipped}`;[cite: 4]
+      document.getElementById('finalScore').innerText = formattedScore;
+      document.getElementById('correctCount').innerText = correct;
+      document.getElementById('wrongCount').innerText = wrong;
+      document.getElementById('skipCount').innerText = skipped;
+      document.getElementById('resultCandidateInfo').innerText = `പരീക്ഷാർത്ഥി: ${currentUser.name} | മൊബൈൽ: ${currentUser.phone}`;
+      document.getElementById('pdfReportCandidateSubheader').innerText = `പരീക്ഷാർത്ഥി: ${currentUser.name} (${currentUser.phone}) | സ്കോർ: ${formattedScore} / 25 | ശരി: ${correct} | തെറ്റ്: ${wrong} | Skip: ${skipped}`;
 
-      const badge = document.getElementById('scoreMotivationBadge');[cite: 4]
+      const badge = document.getElementById('scoreMotivationBadge');
       if (scoreNum >= 20) {
-        badge.className = "max-w-xl mx-auto mb-6 p-4 rounded-2xl border border-emerald-500/60 bg-emerald-950/40 text-emerald-300";[cite: 4]
-        badge.innerHTML = `🌟 <strong>അത്യുജ്ജ്വല പ്രകടനം!</strong> സാമ്പത്തിക ശാസ്ത്രത്തിൽ നിങ്ങൾ മികച്ച അറിവ് നേടിയിരിക്കുന്നു. ഇതേ ആത്മവിശ്വാസത്തോടെ അടുത്ത പരീക്ഷകളെയും നേരിടുക!`;[cite: 4]
+        badge.className = "max-w-xl mx-auto mb-6 p-4 rounded-2xl border border-emerald-500/60 bg-emerald-950/40 text-emerald-300";
+        badge.innerHTML = `🌟 <strong>അത്യുജ്ജ്വല പ്രകടനം!</strong> സാമ്പത്തിക ശാസ്ത്രത്തിൽ നിങ്ങൾ മികച്ച അറിവ് നേടിയിരിക്കുന്നു. ഇതേ ആത്മവിശ്വാസത്തോടെ അടുത്ത പരീക്ഷകളെയും നേരിടുക!`;
       } else if (scoreNum >= 14) {
-        badge.className = "max-w-xl mx-auto mb-6 p-4 rounded-2xl border border-emerald-500/60 bg-emerald-950/40 text-emerald-300";[cite: 4]
-        badge.innerHTML = `👍 <strong>വളരെ നല്ല പ്രകടനം!</strong> ചെറിയ ചില തെറ്റുകൾ തിരുത്തിയാൽ നിങ്ങൾക്ക് പൂർണ്ണ സ്കോറിലേക്ക് എത്താം. വിശദീകരണങ്ങൾ ശ്രദ്ധിച്ചു വായിക്കുക!`;[cite: 4]
+        badge.className = "max-w-xl mx-auto mb-6 p-4 rounded-2xl border border-emerald-500/60 bg-emerald-950/40 text-emerald-300";
+        badge.innerHTML = `👍 <strong>വളരെ നല്ല പ്രകടനം!</strong> ചെറിയ ചില തെറ്റുകൾ തിരുത്തിയാൽ നിങ്ങൾക്ക് പൂർണ്ണ സ്കോറിലേക്ക് എത്താം. വിശദീകരണങ്ങൾ ശ്രദ്ധിച്ചു വായിക്കുക!`;
       } else if (scoreNum >= 8) {
-        badge.className = "max-w-xl mx-auto mb-6 p-4 rounded-2xl border border-amber-500/60 bg-amber-950/40 text-amber-300";[cite: 4]
-        badge.innerHTML = `📖 <strong>നല്ല ശ്രമം!</strong> ഇനിയും കൂടുതൽ ആവർത്തിച്ചു പഠിക്കേണ്ടതുണ്ട്. തെറ്റിയ ചോദ്യങ്ങളും വിശദീകരണങ്ങളും വീണ്ടും പരിശീലിച്ച് സ്കോർ മെച്ചപ്പെടുത്തുക.`;[cite: 4]
+        badge.className = "max-w-xl mx-auto mb-6 p-4 rounded-2xl border border-amber-500/60 bg-amber-950/40 text-amber-300";
+        badge.innerHTML = `📖 <strong>നല്ല ശ്രമം!</strong> ഇനിയും കൂടുതൽ ആവർത്തിച്ചു പഠിക്കേണ്ടതുണ്ട്. തെറ്റിയ ചോദ്യങ്ങളും വിശദീകരണങ്ങളും വീണ്ടും പരിശീലിച്ച് സ്കോർ മെച്ചപ്പെടുത്തുക.`;
       } else {
-        badge.className = "max-w-xl mx-auto mb-6 p-4 rounded-2xl border border-rose-500/60 bg-rose-950/40 text-rose-300";[cite: 4]
-        badge.innerHTML = `💪 <strong>നിരാശപ്പെടരുത്!</strong> ഇതൊരു തുടക്കം മാത്രമാണ്. നോട്ട്സുകൾ വീണ്ടും വായിച്ചുപഠിച്ച് വീണ്ടും പരീക്ഷ എഴുതുക, വിജയം നിങ്ങളെ തേടിയെത്തും!`;[cite: 4]
+        badge.className = "max-w-xl mx-auto mb-6 p-4 rounded-2xl border border-rose-500/60 bg-rose-950/40 text-rose-300";
+        badge.innerHTML = `💪 <strong>നിരാശപ്പെടരുത്!</strong> ഇതൊരു തുടക്കം മാത്രമാണ്. നോട്ട്സുകൾ വീണ്ടും വായിച്ചുപഠിച്ച് വീണ്ടും പരീക്ഷ എഴുതുക, വിജയം നിങ്ങളെ തേടിയെത്തും!`;
       }
 
-      const downloadBtn = document.getElementById('downloadOriginalNoteBtn');[cite: 4]
-      const lockNotice = document.getElementById('pdfLockNotice');[cite: 4]
+      // റിസൾട്ട് പ്രൊഫൈൽ ഹിസ്റ്ററിയിൽ സേവ് ചെയ്യുന്നു
+      try {
+        if (currentUser && currentUser.phone && currentUser.phone !== "0000000000") {
+          const historyKey = `sk_history_${currentUser.phone}`;
+          let history = JSON.parse(localStorage.getItem(historyKey) || '[]');
+          history.push({
+            title: examTitle || "സാമ്പത്തിക ശാസ്ത്രം - സെറ്റ് 1",
+            score: formattedScore,
+            correct: correct,
+            wrong: wrong,
+            skipped: skipped,
+            date: new Date().toLocaleDateString('ml-IN', { day: 'numeric', month: 'short', year: 'numeric' })
+          });
+          localStorage.setItem(historyKey, JSON.stringify(history));
+        }
+      } catch (err) {}
+
+      const downloadBtn = document.getElementById('downloadOriginalNoteBtn');
+      const lockNotice = document.getElementById('pdfLockNotice');
 
       if (scoreNum >= 8.0) {
-        downloadBtn.classList.remove('hidden');[cite: 4]
-        lockNotice.classList.add('hidden');[cite: 4]
+        downloadBtn.classList.remove('hidden');
+        lockNotice.classList.add('hidden');
       } else {
-        downloadBtn.classList.add('hidden');[cite: 4]
-        lockNotice.classList.remove('hidden');[cite: 4]
+        downloadBtn.classList.add('hidden');
+        lockNotice.classList.remove('hidden');
       }
 
-      renderSolutions();[cite: 4]
-      setupClickableReviewCards();[cite: 4]
+      renderSolutions();
+      setupClickableReviewCards();
 
-      quizScreen.classList.add('hidden');[cite: 4]
-      resultScreen.classList.remove('hidden');[cite: 4]
-      window.scrollTo({ top: 0, behavior: 'smooth' });[cite: 4]
+      quizScreen.classList.add('hidden');
+      resultScreen.classList.remove('hidden');
+      window.scrollTo({ top: 0, behavior: 'smooth' });
 
       sendResultToGoogleSheet({
         name: currentUser.name,
@@ -719,66 +695,66 @@
         wrong: wrong,
         skipped: skipped,
         wrongQuestions: wrongQuestionsList
-      });[cite: 4]
+      });
     }
 
     function setupClickableReviewCards() {
-      document.getElementById('filterCorrectCard').onclick = () => renderFilteredQuestions('correct');[cite: 4]
-      document.getElementById('filterWrongCard').onclick = () => renderFilteredQuestions('wrong');[cite: 4]
-      document.getElementById('filterSkippedCard').onclick = () => renderFilteredQuestions('skipped');[cite: 4]
+      document.getElementById('filterCorrectCard').onclick = () => renderFilteredQuestions('correct');
+      document.getElementById('filterWrongCard').onclick = () => renderFilteredQuestions('wrong');
+      document.getElementById('filterSkippedCard').onclick = () => renderFilteredQuestions('skipped');
     }
 
     function renderFilteredQuestions(type) {
-      const area = document.getElementById('filterReviewArea');[cite: 4]
-      const title = document.getElementById('filterReviewTitle');[cite: 4]
-      const list = document.getElementById('filterReviewList');[cite: 4]
-      const letters = ['A', 'B', 'C', 'D'];[cite: 4]
+      const area = document.getElementById('filterReviewArea');
+      const title = document.getElementById('filterReviewTitle');
+      const list = document.getElementById('filterReviewList');
+      const letters = ['A', 'B', 'C', 'D'];
 
-      list.innerHTML = '';[cite: 4]
-      area.classList.remove('hidden');[cite: 4]
+      list.innerHTML = '';
+      area.classList.remove('hidden');
 
       if (type === 'correct') {
-        title.innerHTML = `✅ നിങ്ങൾ ശരിയാക്കിയ ചോദ്യങ്ങൾ (Correct Answers)`;[cite: 4]
-        title.className = "text-lg font-bold text-emerald-400";[cite: 4]
+        title.innerHTML = `✅ നിങ്ങൾ ശരിയാക്കിയ ചോദ്യങ്ങൾ (Correct Answers)`;
+        title.className = "text-lg font-bold text-emerald-400";
       } else if (type === 'wrong') {
-        title.innerHTML = `❌ നിങ്ങൾക്ക് തെറ്റിയ ചോദ്യങ്ങൾ (Wrong Answers)`;[cite: 4]
-        title.className = "text-lg font-bold text-rose-400";[cite: 4]
+        title.innerHTML = `❌ നിങ്ങൾക്ക് തെറ്റിയ ചോദ്യങ്ങൾ (Wrong Answers)`;
+        title.className = "text-lg font-bold text-rose-400";
       } else {
-        title.innerHTML = `⏭️ നിങ്ങൾ ഒഴിവാക്കിയ ചോദ്യങ്ങൾ (Skipped Questions)`;[cite: 4]
-        title.className = "text-lg font-bold text-slate-300";[cite: 4]
+        title.innerHTML = `⏭️ നിങ്ങൾ ഒഴിവാക്കിയ ചോദ്യങ്ങൾ (Skipped Questions)`;
+        title.className = "text-lg font-bold text-slate-300";
       }
 
-      let count = 0;[cite: 4]
+      let count = 0;
       questionsData.forEach((q, idx) => {
-        const uAns = userAnswers[idx];[cite: 4]
-        const isCorrect = uAns === q.ans;[cite: 4]
-        const isWrong = uAns !== null && !isCorrect;[cite: 4]
-        const isSkipped = uAns === null;[cite: 4]
+        const uAns = userAnswers[idx];
+        const isCorrect = uAns === q.ans;
+        const isWrong = uAns !== null && !isCorrect;
+        const isSkipped = uAns === null;
 
         if ((type === 'correct' && isCorrect) || (type === 'wrong' && isWrong) || (type === 'skipped' && isSkipped)) {
-          count++;[cite: 4]
-          const card = document.createElement('div');[cite: 4]
-          card.className = "p-4 rounded-xl border border-slate-700 bg-slate-900/90 space-y-2 text-xs sm:text-sm";[cite: 4]
+          count++;
+          const card = document.createElement('div');
+          card.className = "p-4 rounded-xl border border-slate-700 bg-slate-900/90 space-y-2 text-xs sm:text-sm";
           
-          let optsMarkup = '<div class="grid grid-cols-1 sm:grid-cols-2 gap-2 mt-2">';[cite: 4]
+          let optsMarkup = '<div class="grid grid-cols-1 sm:grid-cols-2 gap-2 mt-2">';
           q.options.forEach((opt, oIdx) => {
-            let optClass = 'p-2 rounded-lg border flex items-center space-x-2 text-xs ';[cite: 4]
+            let optClass = 'p-2 rounded-lg border flex items-center space-x-2 text-xs ';
             if (oIdx === q.ans) {
-              optClass += 'border-emerald-500 bg-emerald-950/40 text-emerald-300 font-semibold';[cite: 4]
+              optClass += 'border-emerald-500 bg-emerald-950/40 text-emerald-300 font-semibold';
             } else if (oIdx === uAns && !isCorrect) {
-              optClass += 'border-rose-500 bg-rose-950/40 text-rose-300 line-through';[cite: 4]
+              optClass += 'border-rose-500 bg-rose-950/40 text-rose-300 line-through';
             } else {
-              optClass += 'border-slate-800 text-slate-400';[cite: 4]
+              optClass += 'border-slate-800 text-slate-400';
             }
-            optsMarkup += `<div class="${optClass}"><span>${letters[oIdx]})</span><span>${opt}</span></div>`;[cite: 4]
+            optsMarkup += `<div class="${optClass}"><span>${letters[oIdx]})</span><span>${opt}</span></div>`;
           });
-          optsMarkup += '</div>';[cite: 4]
+          optsMarkup += '</div>';
 
           let statusBadge = isCorrect 
             ? '<span class="text-emerald-400 font-bold">+1.00 Mark</span>' 
             : isWrong 
             ? '<span class="text-rose-400 font-bold">-0.33 Mark</span>' 
-            : '<span class="text-slate-400 font-bold">Skipped (0 Mark)</span>';[cite: 4]
+            : '<span class="text-slate-400 font-bold">Skipped (0 Mark)</span>';
 
           card.innerHTML = `
             <div class="flex items-center justify-between">
@@ -794,44 +770,44 @@
               <span class="font-bold text-emerald-400">വിശദീകരണം:</span>
               <span class="text-slate-300 ml-1">${q.exp}</span>
             </div>
-          `;[cite: 4]
-          list.appendChild(card);[cite: 4]
+          `;
+          list.appendChild(card);
         }
       });
 
       if (count === 0) {
-        list.innerHTML = `<p class="py-4 text-center text-slate-400 text-xs">ഈ വിഭാഗത്തിൽ ചോദ്യങ്ങൾ ഒന്നുമില്ല.</p>`;[cite: 4]
+        list.innerHTML = `<p class="py-4 text-center text-slate-400 text-xs">ഈ വിഭാഗത്തിൽ ചോദ്യങ്ങൾ ഒന്നുമില്ല.</p>`;
       }
 
-      area.scrollIntoView({ behavior: 'smooth' });[cite: 4]
+      area.scrollIntoView({ behavior: 'smooth' });
     }
 
     document.getElementById('closeFilterReviewBtn').onclick = () => {
-      document.getElementById('filterReviewArea').classList.add('hidden');[cite: 4]
-    };[cite: 4]
+      document.getElementById('filterReviewArea').classList.add('hidden');
+    };
 
     document.getElementById('downloadOriginalNoteBtn').onclick = () => {
-      document.getElementById('feedbackModal').classList.remove('hidden');[cite: 4]
-    };[cite: 4]
+      document.getElementById('feedbackModal').classList.remove('hidden');
+    };
 
-    document.getElementById('likeBtn').onclick = () => recordFeedbackAndOpenDownload('Like');[cite: 4]
-    document.getElementById('dislikeBtn').onclick = () => recordFeedbackAndOpenDownload('Dislike');[cite: 4]
+    document.getElementById('likeBtn').onclick = () => recordFeedbackAndOpenDownload('Like');
+    document.getElementById('dislikeBtn').onclick = () => recordFeedbackAndOpenDownload('Dislike');
 
     function recordFeedbackAndOpenDownload(feedbackVal) {
-      document.getElementById('feedbackModal').classList.add('hidden');[cite: 4]
-      sendFeedbackToGoogleSheet(currentUser.phone, feedbackVal);[cite: 4]
-      window.open(ORIGINAL_PDF_URL, '_blank');[cite: 4]
+      document.getElementById('feedbackModal').classList.add('hidden');
+      sendFeedbackToGoogleSheet(currentUser.phone, feedbackVal);
+      window.open(ORIGINAL_PDF_URL, '_blank');
     }
 
     function sendResultToGoogleSheet(payload) {
-      const statusDiv = document.getElementById('sheetStatus');[cite: 4]
+      const statusDiv = document.getElementById('sheetStatus');
       if (!GOOGLE_SHEET_WEBAPP_URL || GOOGLE_SHEET_WEBAPP_URL.includes("YOUR_APPS_SCRIPT_WEBAPP_URL_HERE")) {
-        statusDiv.innerText = "Google Sheet ലിങ്ക് നൽകിയിട്ടില്ല (മാർക്ക് മുകളിൽ ലഭ്യമാണ്).";[cite: 4]
-        statusDiv.classList.remove('animate-pulse');[cite: 4]
+        statusDiv.innerText = "Google Sheet ലിങ്ക് നൽകിയിട്ടില്ല (മാർക്ക് മുകളിൽ ലഭ്യമാണ്).";
+        statusDiv.classList.remove('animate-pulse');
         return;
       }
 
-      payload.sheetName = QUIZ_SHEET_NAME;[cite: 4]
+      payload.sheetName = QUIZ_SHEET_NAME;
 
       fetch(GOOGLE_SHEET_WEBAPP_URL, {
         method: 'POST',
@@ -840,17 +816,17 @@
         body: JSON.stringify(payload)
       })
       .then(() => {
-        statusDiv.innerText = `✓ മാർക്ക് '${QUIZ_SHEET_NAME}' എന്ന ഷീറ്റ് ടാബിലേക്ക് രേഖപ്പെടുത്തി!`;[cite: 4]
-        statusDiv.className = "text-xs text-emerald-400 mb-4";[cite: 4]
+        statusDiv.innerText = `✓ മാർക്ക് '${QUIZ_SHEET_NAME}' എന്ന ഷീറ്റ് ടാബിലേക്ക് രേഖപ്പെടുത്തി!`;
+        statusDiv.className = "text-xs text-emerald-400 mb-4";
       })
       .catch(() => {
-        statusDiv.innerText = "ഡാറ്റ സേവ് ചെയ്യുന്നതിൽ ചെറിയ തടസ്സം നേരിട്ടു.";[cite: 4]
-        statusDiv.className = "text-xs text-rose-400 mb-4";[cite: 4]
+        statusDiv.innerText = "ഡാറ്റ സേവ് ചെയ്യുന്നതിൽ ചെറിയ തടസ്സം നേരിട്ടു.";
+        statusDiv.className = "text-xs text-rose-400 mb-4";
       });
     }
 
     function sendReportQuestionToGoogleSheet(qNum, reason) {
-      if (!GOOGLE_SHEET_WEBAPP_URL || GOOGLE_SHEET_WEBAPP_URL.includes("YOUR_APPS_SCRIPT_WEBAPP_URL_HERE")) return;[cite: 4]
+      if (!GOOGLE_SHEET_WEBAPP_URL || GOOGLE_SHEET_WEBAPP_URL.includes("YOUR_APPS_SCRIPT_WEBAPP_URL_HERE")) return;
       fetch(GOOGLE_SHEET_WEBAPP_URL, {
         method: 'POST',
         mode: 'no-cors',
@@ -861,11 +837,11 @@
           questionNumber: qNum,
           reason: reason
         })
-      });[cite: 4]
+      });
     }
 
     function sendFeedbackToGoogleSheet(phone, feedback) {
-      if (!GOOGLE_SHEET_WEBAPP_URL || GOOGLE_SHEET_WEBAPP_URL.includes("YOUR_APPS_SCRIPT_WEBAPP_URL_HERE")) return;[cite: 4]
+      if (!GOOGLE_SHEET_WEBAPP_URL || GOOGLE_SHEET_WEBAPP_URL.includes("YOUR_APPS_SCRIPT_WEBAPP_URL_HERE")) return;
       fetch(GOOGLE_SHEET_WEBAPP_URL, {
         method: 'POST',
         mode: 'no-cors',
@@ -876,31 +852,31 @@
           phone: phone,
           feedback: feedback
         })
-      });[cite: 4]
+      });
     }
 
     function renderSolutions() {
-      const cont = document.getElementById('solutionsContainer');[cite: 4]
-      cont.innerHTML = '';[cite: 4]
-      const letters = ['A', 'B', 'C', 'D'];[cite: 4]
+      const cont = document.getElementById('solutionsContainer');
+      cont.innerHTML = '';
+      const letters = ['A', 'B', 'C', 'D'];
 
       questionsData.forEach((q, idx) => {
-        const uAns = userAnswers[idx];[cite: 4]
-        const isCorrect = uAns === q.ans;[cite: 4]
-        const isSkipped = uAns === null;[cite: 4]
+        const uAns = userAnswers[idx];
+        const isCorrect = uAns === q.ans;
+        const isSkipped = uAns === null;
 
         let badge = isSkipped 
           ? '<span class="px-2 py-0.5 rounded text-xs bg-slate-700 text-slate-300">Skipped</span>'
           : isCorrect 
           ? '<span class="px-2 py-0.5 rounded text-xs bg-emerald-950 text-emerald-400 border border-emerald-800 font-bold">+1.00 Mark (ശരിയുത്തരം)</span>'
-          : '<span class="px-2 py-0.5 rounded text-xs bg-rose-950 text-rose-400 border border-rose-800 font-bold">-0.33 Mark (തെറ്റ്)</span>';[cite: 4]
+          : '<span class="px-2 py-0.5 rounded text-xs bg-rose-950 text-rose-400 border border-rose-800 font-bold">-0.33 Mark (തെറ്റ്)</span>';
 
-        let optsHtml = '<div class="grid grid-cols-1 sm:grid-cols-2 gap-2 mt-2">';[cite: 4]
+        let optsHtml = '<div class="grid grid-cols-1 sm:grid-cols-2 gap-2 mt-2">';
         q.options.forEach((opt, oIdx) => {
-          let c = 'p-2.5 rounded-lg text-xs flex items-center space-x-2 border ';[cite: 4]
-          if (oIdx === q.ans) c += 'border-emerald-500 bg-emerald-950/40 text-emerald-300 font-semibold';[cite: 4]
-          else if (oIdx === uAns && !isCorrect) c += 'border-rose-500 bg-rose-950/40 text-rose-300 line-through';[cite: 4]
-          else c += 'border-slate-800 text-slate-400';[cite: 4]
+          let c = 'p-2.5 rounded-lg text-xs flex items-center space-x-2 border ';
+          if (oIdx === q.ans) c += 'border-emerald-500 bg-emerald-950/40 text-emerald-300 font-semibold';
+          else if (oIdx === uAns && !isCorrect) c += 'border-rose-500 bg-rose-950/40 text-rose-300 line-through';
+          else c += 'border-slate-800 text-slate-400';
 
           optsHtml += `
             <div class="${c}">
@@ -909,12 +885,12 @@
               ${oIdx === q.ans ? '<span class="ml-auto text-emerald-400 font-bold">✓ ശരി</span>' : ''}
               ${oIdx === uAns && !isCorrect ? '<span class="ml-auto text-rose-400 font-bold">✗ നിങ്ങൾ തിരഞ്ഞെടുത്തത്</span>' : ''}
             </div>
-          `;[cite: 4]
+          `;
         });
-        optsHtml += '</div>';[cite: 4]
+        optsHtml += '</div>';
 
-        const item = document.createElement('div');[cite: 4]
-        item.className = 'p-4 rounded-xl border border-slate-700 bg-slate-900/70 space-y-2';[cite: 4]
+        const item = document.createElement('div');
+        item.className = 'p-4 rounded-xl border border-slate-700 bg-slate-900/70 space-y-2';
         item.innerHTML = `
           <div class="flex justify-between items-start gap-2">
             <span class="font-bold text-emerald-400 text-sm">ചോദ്യം ${idx + 1}</span>
@@ -931,112 +907,49 @@
             <span class="font-bold text-emerald-400">വിശദീകരണം:</span>
             <span class="text-slate-300 ml-1">${q.exp}</span>
           </div>
-        `;[cite: 4]
-        cont.appendChild(item);[cite: 4]
+        `;
+        cont.appendChild(item);
       });
     }
 
     document.getElementById('downloadPdfBtn').addEventListener('click', () => {
-      const element = document.getElementById('pdfExportWrapper');[cite: 4]
+      const element = document.getElementById('pdfExportWrapper');
       const opt = {
         margin:       [10, 10, 10, 10],
         filename:     `${currentUser.name}_Economics_Set1_Scorecard.pdf`,
         image:        { type: 'jpeg', quality: 0.98 },
         html2canvas:  { scale: 2, useCORS: true, backgroundColor: '#1e293b' },
         jsPDF:        { unit: 'mm', format: 'a4', orientation: 'portrait' }
-      };[cite: 4]
+      };
 
-      const btn = document.getElementById('downloadPdfBtn');[cite: 4]
-      btn.innerText = 'PDF തയ്യാറാക്കുന്നു...';[cite: 4]
-      btn.disabled = true;[cite: 4]
+      const btn = document.getElementById('downloadPdfBtn');
+      btn.innerText = 'PDF തയ്യാറാക്കുന്നു...';
+      btn.disabled = true;
 
       html2pdf().set(opt).from(element).save().then(() => {
         btn.innerHTML = `
           <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
           <span>PDF ഡൗൺലോഡ് ആയി!</span>
-        `;[cite: 4]
+        `;
         setTimeout(() => {
           btn.innerHTML = `
             <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path></svg>
             <span>സ്കോർകാർഡ് PDF</span>
-          `;[cite: 4]
-          btn.disabled = false;[cite: 4]
+          `;
+          btn.disabled = false;
         }, 3000);
       });
     });
 
-    function fetchLiveLeaderboard() {
-      const modal = document.getElementById('leaderboardModal');[cite: 4]
-      const loader = document.getElementById('leaderboardLoading');[cite: 4]
-      const wrapper = document.getElementById('leaderboardTableWrapper');[cite: 4]
-      const tbody = document.getElementById('leaderboardBody');[cite: 4]
+    function returnToHomeWithData() {
+      const homePortalUrl = "https://subhash-kumar00.github.io/PSC-EXAMS/";
+      const score = document.getElementById('finalScore').innerText;
+      const correct = document.getElementById('correctCount').innerText;
+      const wrong = document.getElementById('wrongCount').innerText;
+      const skipped = document.getElementById('skipCount').innerText;
 
-      modal.classList.remove('hidden');[cite: 4]
-      loader.classList.add('hidden');[cite: 4]
-      wrapper.classList.remove('hidden');[cite: 4]
-      tbody.innerHTML = '';[cite: 4]
-
-      if (!GOOGLE_SHEET_WEBAPP_URL || GOOGLE_SHEET_WEBAPP_URL.includes("YOUR_APPS_SCRIPT_WEBAPP_URL_HERE")) {
-        loader.innerText = "Google Apps Script URL സെറ്റ് ചെയ്തിട്ടില്ല.";[cite: 4]
-        return;
-      }
-
-      fetch(`${GOOGLE_SHEET_WEBAPP_URL}?sheet=${encodeURIComponent(QUIZ_SHEET_NAME)}`)[cite: 4]
-        .then(res => res.json())[cite: 4]
-        .then(data => {
-          loader.classList.add('hidden');[cite: 4]
-          wrapper.classList.remove('hidden');[cite: 4]
-
-          if (!data || data.length === 0) {
-            tbody.innerHTML = '<tr><td colspan="4" class="py-6 text-center text-slate-500">ഇതുവരെ ആരും പരീക്ഷ പൂർത്തിയാക്കിയിട്ടില്ല.</td></tr>';[cite: 4]
-            return;
-          }
-
-          data.sort((a, b) => b.score - a.score || b.correct - a.correct);[cite: 4]
-
-          data.forEach((entry, idx) => {
-            const masked = entry.phone ? String(entry.phone).substring(0, 5) + '*****' : '---';[cite: 4]
-            const row = document.createElement('tr');[cite: 4]
-            row.className = 'hover:bg-slate-700/30 text-slate-300';[cite: 4]
-            row.innerHTML = `
-              <td class="py-2.5 px-3 font-mono font-bold">${idx + 1}</td>
-              <td class="py-2.5 px-3 font-medium">${entry.name}</td>
-              <td class="py-2.5 px-3 font-mono text-xs text-slate-400">${masked}</td>
-              <td class="py-2.5 px-3 text-right font-mono font-bold text-emerald-400">${Number(entry.score).toFixed(2)}</td>
-            `;[cite: 4]
-            tbody.appendChild(row);[cite: 4]
-          });
-        })
-        .catch(() => {
-          loader.innerText = "റാങ്ക് ലിസ്റ്റ് ലോഡ് ചെയ്യാൻ കഴിഞ്ഞില്ല. ദയവായി അല്പം കഴിഞ്ഞ് ശ്രമിക്കുക.";[cite: 4]
-        });
+      window.location.href = `${homePortalUrl}?completed=true&title=${encodeURIComponent(examTitle)}&score=${score}&correct=${correct}&wrong=${wrong}&skipped=${skipped}`;
     }
-
-    document.getElementById('loginForm').onsubmit = (e) => {
-      e.preventDefault();[cite: 4]
-      const name = document.getElementById('candName').value.trim();[cite: 4]
-      const phone = document.getElementById('candPhone').value.trim();[cite: 4]
-
-      if (!name || phone.length !== 10) {
-        alert('ദയവായി ശരിയായ പേരും 10 അക്ക മൊബൈൽ നമ്പറും നൽകുക.');[cite: 4]
-        return;
-      }
-
-      currentUser = { name, phone };[cite: 4]
-      document.getElementById('displayUser').innerText = `${name} (+91 ${phone})`;[cite: 4]
-      document.getElementById('userInfoHeader').classList.remove('hidden');[cite: 4]
-
-      showMotivationScreen();
-    };
-
-    document.getElementById('viewRankBtn').onclick = fetchLiveLeaderboard;[cite: 4]
-    document.getElementById('showLeaderboardBtn').onclick = fetchLiveLeaderboard;[cite: 4]
-    document.getElementById('closeLeaderboardBtn').onclick = () => {
-      document.getElementById('leaderboardModal').classList.add('hidden');[cite: 4]
-    };[cite: 4]
-    document.getElementById('closeLeaderboardBtn2').onclick = () => {
-      document.getElementById('leaderboardModal').classList.add('hidden');[cite: 4]
-    };[cite: 4]
   </script>
 </body>
 </html>
